@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'timer',
+    'register.apps.RegisterConfig',
 ]
 
 MIDDLEWARE = [
@@ -79,7 +80,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'pomodoro_db',
         'USER': 'root',
-        'PASSWORD': 'fn37v9xn396jj',
+        'PASSWORD': 'Wangyifei970504',
     }
 }
 
