@@ -1,7 +1,11 @@
 from django.urls import path
-from . import views
+from . import views, timer
+from django.views.decorators.csrf import csrf_exempt
+
 
 urlpatterns = [
-    path("", views.index, name = "index"),
-    path("v1/", views.v1, name="view 1"),
+    path("<int:id>", views.index, name = "index"),
+    path("", csrf_exempt(views.home), name="home"),
+    path("timer", timer.run_timer, name="timer"),
+    # path("", views.output, name="script"),
 ]
