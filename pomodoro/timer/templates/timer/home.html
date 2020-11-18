@@ -27,22 +27,22 @@ body {
     <div id="timer_button_stop">
         <button id="pomodoro-pause">Pause</button>
     </div>
-    
-    
+
+
     <script>
     function myFunction() {
       document.getElementById("timer_display_duration-stop").innerHTML = "Hello World";
       document.getElementById("demo").innerHTML = days + "d " + hours + "h "
     + minutes + "m " + seconds + "s ";
     }
-    </script>    
-        
-        
+    </script>
+
+
 
 </body>
 </html> -->
 <h1>Pomodoro <span>
-    <img width="50" height="50" 
+    <img width="50" height="50"
     src="https://img.lovepik.com/element/40147/9698.png_860.png" alt="Pomodoro"></span> Timer</h1>
 <style>
     body {
@@ -58,19 +58,19 @@ body {
     <p id="quote"></p>
     <div id="clock">25:00</div>
 
-   <div id="timer_button_container"> </div> 
-   
+   <div id="timer_button_container"> </div>
+
     <form action="" method="POST">
-    <button name="start_timer"  type="input" id="pomodoro-start" value="start" >START</button> 
+    <button name="start_timer"  type="input" id="pomodoro-start" value="start" >START</button>
     </form>
 
-    <div id="timer_button_container">
+    <div id="timer_button_container1">
         <button name="reset" type="button" { %csrf_token% }  id="pomodoro-reset" value="reset">Reset</button>
-    </div> 
+    </div>
 
-    <div id="timer_button_container">
+    <div id="timer_button_container2">
         <button type="button" id="pomodoro-stop">Stop</button>
-    </div> 
+    </div>
 
   <div class="left">
     <span>Break Length</span><br>
@@ -85,7 +85,7 @@ body {
     <span id="sessionNum">25</span>
     <input type="button" value="+" id="plusSessionBtn">
   </div>
-  
+
   <script>
     function goPython(){
         $.ajax({
@@ -96,7 +96,13 @@ body {
         });
     }
 </script>
-  
-  
+
+
   <div id="progress"></div>
 </main>
+
+
+
+
+
+
