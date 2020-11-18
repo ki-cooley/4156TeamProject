@@ -83,7 +83,7 @@ def run_timer(self):
             
             elif usr_ans == False:
                 # no more pomodoros
-                print(f'Pomodoro timer complete! \nYou have completed {pomodoro.total_pomodoros} pomodoros today.')
+                print(f'Pomodoro main complete! \nYou have completed {pomodoro.total_pomodoros} pomodoros today.')
                 messagebox.showinfo("Pomodoro Finished!", "\nIt is now "+ pomodoro.current_time.strftime("%H:%M") +
                 "\nYou completed "+ str(pomodoro.total_pomodoros)+" pomodoros so far today!")
                 break
