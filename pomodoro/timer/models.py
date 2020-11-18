@@ -8,7 +8,6 @@ class Session(models.Model):
     end_day = models.DateField()
     end_time = models.TimeField()
     user_id = models.ForeignKey(User, on_delete=models.CASCADE)
-    pomodoro_completed = models.IntegerField()
 
 class SessionActivity(models.Model):
     #id (primary key) is automatically added
