@@ -1,12 +1,6 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
-import requests as r
-import sys
-from subprocess import run, PIPE
-from django.views.generic import TemplateView 
 from . import pomodoro_timer as p
-
-
 
 def index(response):
     return HttpResponse ("<h1>Welcome to Pomodoro timer!</h1>")
@@ -16,22 +10,31 @@ def home(response):
 
 def start(response):
     if response.method == "POST":
-        print("Hello from start()")
         alldata = response.POST
         reset_button_value = alldata.get("reset_timer", 0)
-        print("reset_button_value : " + str(reset_button_value))
-        return redirect('/start')
+        skip_value = alldata.get("skip_to_break", 0)
+        if (str(reset_button_value) == "reset"):
+            return redirect ('/start/')
+        if (str(skip_value) == "skip_to_break"):
+            return redirect ('/break/')
     else:
         pomodoro = p.Pomodoro()
         pomodoro.run_timer()
         return render(response, "timer/start.html", {})
 
-def output(response):
-    print (response.method)
+def start_break(response):
     if response.method == "POST":
-        print ("******")
-        print (response.POST)
-        print ("******")
+        print("Hello from break()")
+        alldata = response.POST
+        reset_button_value = alldata.get("new_session", 0)
+        print("new_session : " + str(reset_button_value))
+        if (str(reset_button_value) == "new_session"):
+            return redirect ('/start/')
+    else:
+        return render(response, "timer/break.html", {})
+
+def output(response):
+    if response.method == "POST":
         # parsing Http Response from UI start button 
         alldata = response.POST
         start_button_value = alldata.get("start_timer", 0)
@@ -40,8 +43,7 @@ def output(response):
         return redirect('/start/')
 
     else: #GET method
-        # redirect('start/', "timer/home.html", {})
         return render(response, "timer/home.html", {})
-        # do 
+
         
     

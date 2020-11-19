@@ -7,4 +7,5 @@ urlpatterns = [
     path("", csrf_exempt(views.output), name="home"),
     path("login/", csrf_exempt(views.home), name="login"), #to link to login html
     path("start/", csrf_exempt(views.start), name="start"),
+    path("break/", csrf_exempt(views.start_break), name="break"),
 ]
