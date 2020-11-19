@@ -5,6 +5,6 @@ from django.views.decorators.csrf import csrf_exempt
 
 urlpatterns = [
     path("", csrf_exempt(views.output), name="home"),
-    path("v", csrf_exempt(views.home), name="v"),
+    path("login/", csrf_exempt(views.home), name="login"), #to link to login html
     path("start/", csrf_exempt(views.start), name="start"),
 ]

@@ -5,7 +5,7 @@ import sys
 from subprocess import run, PIPE
 from django.views.generic import TemplateView 
 from . import pomodoro_timer as p
-# from p import run_timer
+
 
 
 def index(response):
@@ -15,7 +15,16 @@ def home(response):
     return render(response, "timer/home.html", {})
 
 def start(response):
-    return render(response, "timer/start.html", {})
+    if response.method == "POST":
+        print("Hello from start()")
+        alldata = response.POST
+        reset_button_value = alldata.get("reset_timer", 0)
+        print("reset_button_value : " + str(reset_button_value))
+        return redirect('/start')
+    else:
+        pomodoro = p.Pomodoro()
+        pomodoro.run_timer()
+        return render(response, "timer/start.html", {})
 
 def output(response):
     print (response.method)
@@ -28,13 +37,10 @@ def output(response):
         start_button_value = alldata.get("start_timer", 0)
         print("start_button_value : " + start_button_value)
         # call timer function
-        pomodoro = p.Pomodoro()
-        pomodoro.run_timer()
+        return redirect('/start/')
 
-        
-        return render(response, "timer/home.html", {})
     else: #GET method
-        redirect('start/', "timer/home.html", {})
+        # redirect('start/', "timer/home.html", {})
         return render(response, "timer/home.html", {})
         # do 
         
