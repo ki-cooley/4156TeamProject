@@ -19,7 +19,11 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="53c6c40c-25aa-486d-9ff5-e6bf9007c36f" name="Default Changelist" comment="" />
+    <list default="true" id="53c6c40c-25aa-486d-9ff5-e6bf9007c36f" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pomodoro/dashboard/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pomodoro/timer/migrations/0001_initial.py" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -49,7 +53,7 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="6e96b44e-bda5-40d9-aeb0-9e1aa24660db" name="Default Changelist" comment="" />
+      <changelist id="53c6c40c-25aa-486d-9ff5-e6bf9007c36f" name="Default Changelist" comment="" />
       <created>1605593098607</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />

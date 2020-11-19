@@ -1,0 +1,88 @@
+<h1>Pomodoro <span>
+    <img width="50" height="50"
+    src="https://img.lovepik.com/element/40147/9698.png_860.png" alt="Pomodoro"></span> Timer</h1>
+<style>
+    body {
+        background-color: rgb(77, 191, 132);
+        text-align: center;
+        color: white;
+        font-size:300%;
+    }
+    </style>
+
+<main id="pomodoro">
+    <!--    <div id="clock">25:00</div>-->
+
+   <div id="timer_button_container"> </div>
+
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+p {
+  text-align: center;
+  color: white;
+  font-size: 60px;
+  margin-top: 0px;
+}
+</style>
+</head>
+<body>
+
+<p id="demo"></p>
+
+<script>
+// Set the date we're counting down to
+var countDownDate = new Date().getTime() + 1.5 * Math.pow(10, 6);
+
+// Update the count down every 1 second
+var x = setInterval(function() {
+
+  // Get today's date and time
+  var now = new Date().getTime();
+
+  // Find the distance between now and the count down date
+  var distance = countDownDate - now;
+
+  // Time calculations for days, hours, minutes and seconds
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+  // Output the result in an element with id="demo"
+  document.getElementById("demo").innerHTML = minutes + "m " + seconds + "s ";
+
+  // If the count down is over, write some text
+  if (distance < 0) {
+    clearInterval(x);
+    document.getElementById("demo").innerHTML = "Pomodoro Done";
+  }
+}, 1000);
+</script>
+
+</body>
+
+
+    <form action="" method="post">
+    <button name="reset_timer"  type="input" id="pomodoro-reset" value="reset" >RESET</button>
+    </form>
+
+<!--    <form action="" method="post">-->
+<!--    <button name="stop_timer"  type="input" id="pomodoro-stop" value="stop" >STOP</button>-->
+<!--    </form>-->
+
+<!--  <div class="left">-->
+<!--    <span>Break Length</span><br>-->
+<!--    <input type="button" value="-" id="minBreakBtn">-->
+<!--    <span id="breakNum">5</span>-->
+<!--    <input type="button" value="+" id="plusBreakBtn">-->
+<!--  </div>-->
+
+<!--  <div class="right">-->
+<!--    <span>Session Length</span><br>-->
+<!--    <input type="button" value="-" id="minSessionBtn">-->
+<!--    <span id="sessionNum">25</span>-->
+<!--    <input type="button" value="+" id="plusSessionBtn">-->
+<!--  </div>-->
+
+
+  <div id="progress"></div>
+</main>

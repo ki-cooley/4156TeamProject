@@ -18,10 +18,10 @@ from django.contrib import admin
 from django.urls import path, include
 from register import views as vregister
 
-urlpatterns = (
+urlpatterns = [
     path('admin/', admin.site.urls),
     path('register/', vregister.register, name="register"),
     path('', include("timer.urls")),
     path('', include("django.contrib.auth.urls")),
     #path('logout/', vregister.logout, name="logout"),
-)
+]
