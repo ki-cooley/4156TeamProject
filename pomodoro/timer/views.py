@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from . import pomodoro_timer as p
+from django.contrib.auth.decorators import login_required
 
 def index(response):
     return HttpResponse ("<h1>Welcome to Pomodoro timer!</h1>")
@@ -8,6 +9,7 @@ def index(response):
 def home(response):
     return render(response, "timer/home.html", {})
 
+@login_required
 def start(response):
     if response.method == "POST":
         alldata = response.POST

@@ -1,0 +1,21 @@
+{% extends "timer/register_base.html" %}
+{% load crispy_forms_tags %}
+{% block title %}
+USER LOGIN
+{% endblock %}
+{% block content %}
+    <div id="login", name="login", class="user_reg">
+        <div class="row justify-content-center">
+            <div class="col-8">
+                <h1 class="mt-2">USER LOGIN</h1>
+                <hr class="mt-0 mb-4">
+                <form method="post" class="form-group">
+                    {% csrf_token %}
+                    {{ form|crispy }}
+                    <p>Don't have an account? Create one <a href="/register">here</a></p>
+                    <button type="submit" class="btn btn-success">Login</button>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
