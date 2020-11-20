@@ -36,7 +36,7 @@ while not SET_OS:
 # asking for user input of block time, will change to obtain from the website
 BLOCK_TIME = 0
 while BLOCK_TIME <= 0:
-    block_time = int(input("Please enter number of minutes you would like the blocker to work: "))
+    BLOCK_TIME = int(input("Please enter number of minutes you would like the blocker to work: "))
 
 current_time = datetime.now()
 BLOCK_TIME_SEC = BLOCK_TIME*60
