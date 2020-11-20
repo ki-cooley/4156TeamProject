@@ -1,3 +1,8 @@
+"""
+a simple website blocker worked by redirecting desired website's ip
+to ip "127.0.0.1" which is the localhost
+"""
+
 import time
 from datetime import datetime, timedelta
 
@@ -8,45 +13,49 @@ sites_to_block = [
     "www.gmail.com", "gmail.com"
 ]
 
-Linux = "/etc/hosts"
-Windows = r"C:\Windows\System32\drivers\etc\hosts"
-redirect = "127.0.0.1"
-host_path = ""
-set_os = False
+# host path specific to os
+LINUX = "/etc/hosts"
+WINDOWS = r"C:\Windows\System32\drivers\etc\hosts"
+REDIRECT = "127.0.0.1"
+HOST_PATH = ""
+SET_OS = False
 
-while not set_os:
+# asking for user input of os, will change to obtain from the website
+while not SET_OS:
     oper_sys = input("Please indicate your operating system (Linux/Windows): ")
 
     if oper_sys == "Linux":
-        host_path = Linux
-        set_os = True
+        HOST_PATH = LINUX
+        SET_OS = True
     elif oper_sys == "Windows":
-        host_path = Windows
-        set_os = True
+        HOST_PATH = WINDOWS
+        SET_OS = True
     else:
         print("Please enter a valid operating system")
 
-block_time = 0
-while block_time <= 0:
+# asking for user input of block time, will change to obtain from the website
+BLOCK_TIME = 0
+while BLOCK_TIME <= 0:
     block_time = int(input("Please enter number of minutes you would like the blocker to work: "))
 
 current_time = datetime.now()
-block_time_sec = block_time*60
-blocker_end_time = current_time + timedelta(0,block_time_sec)
+BLOCK_TIME_SEC = BLOCK_TIME*60
+blocker_end_time = current_time + timedelta(0,BLOCK_TIME_SEC)
 print(blocker_end_time)
-blocker_status = True
+BLOCKER_STATUS = True
 
-while blocker_status:
+# blocking functionality
+while BLOCKER_STATUS:
     if datetime.now() < blocker_end_time:
-        with open(host_path, 'r+') as hostfile:
+        with open(HOST_PATH, 'r+') as hostfile:
             hosts = hostfile.read()
             for site in  sites_to_block:
                 if site not in hosts:
-                   hostfile.write(redirect+' '+site+'\n')
+                    hostfile.write(REDIRECT+' '+site+'\n')
         print("website blocker is activated ... ")
         time.sleep(5)
     else:
-        with open(host_path, 'r+') as hostfile:
+        with open(HOST_PATH, 'r+') as hostfile:
             hosts = hostfile.readlines()
             hostfile.seek(0)
             for host in hosts:
@@ -54,5 +63,4 @@ while blocker_status:
                     hostfile.write(host)
             hostfile.truncate()
         print('Blocking time is over. Good job!')
-        blocker_status = False
-
+        BLOCKER_STATUS = False
