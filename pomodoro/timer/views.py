@@ -3,6 +3,21 @@ from django.http import HttpResponse
 from . import pomodoro_timer as p
 from django.contrib.auth.decorators import login_required
 
+from rest_framework import status, viewsets
+from .serializers import SessionActivitySerializer
+from .models import SessionActivity
+from rest_framework.response import Response
+
+class SessionActivityViewSet(viewsets.ModelViewSet):
+    queryset = SessionActivity.objects.all().order_by('user_id')
+    serializer_class = SessionActivitySerializer
+
+    def create(self, request, *args, **kwargs):
+        serializer = self.get_serializer(data=request.data, many=isinstance(request.data, list))
+        serializer.is_valid(raise_exception=True)
+        self.perform_create(serializer)
+        headers = self.get_success_headers(serializer.data)
+        return Response(serializer.data, status=status.HTTP_201_CREATED, headers=headers)
 
 def index(response):
     return HttpResponse ("<h1>Welcome to Pomodoro timer!</h1>")

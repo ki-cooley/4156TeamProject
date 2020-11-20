@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'timer',
+    'rest_framework',
     'crispy_forms',
     'timer.apps.TimerConfig',
     'register.apps.RegisterConfig',

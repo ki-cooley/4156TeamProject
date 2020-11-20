@@ -9,10 +9,10 @@ def main():
     session_activity = [{'site_url': strip_url(x[0]), 'visit_timestamp': x[2], 'user_id': user_id} for x in history]
     activity_json = json.dumps(session_activity)
 
-    r = post('http://127.0.0.1:8000/api', json=activity_json)
+    r = post('http://127.0.0.1:8000/api/track/', json=activity_json)
 
 def strip_url(url):
-    stripped_url = parse.urlparse(url).netloc
+    stripped_url = parse.urlparse(url).scheme + "://" + parse.urlparse(url).netloc
     return stripped_url
 
 if __name__ == "__main__":
