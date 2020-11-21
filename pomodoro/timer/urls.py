@@ -1,11 +1,12 @@
+"""Declare URLs."""
+
 from django.urls import path
-from . import views, pomodoro_timer
 from django.views.decorators.csrf import csrf_exempt
 
+from . import views
 
 urlpatterns = [
-    path("", csrf_exempt(views.output), name="home"),
-    path("login/", csrf_exempt(views.home), name="login"), #to link to login html
+    path("", csrf_exempt(views.home), name="home"),
     path("start/", csrf_exempt(views.start), name="start"),
     path("break/", csrf_exempt(views.start_break), name="break"),
 ]

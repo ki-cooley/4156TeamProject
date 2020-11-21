@@ -1,33 +1,34 @@
+"""Pomodoro timer class."""
 import datetime as dt
-from django.utils import timezone
+
 from django.contrib.auth.models import User
+from django.utils import timezone
+
 from . import models as m
 
 
-class Pomodoro():
-    POMODORO_SEC = 25 * 60  # Pomodoro time                 [int, seconds]
-    DELTA_SEC = 5 * 60  # Break time, after pomodoro    [int, seconds]
+class Pomodoro:
+    """Pomodoro class"""
 
     def __init__(self):
+        pomodoro_sec = 25 * 60
+        delta_sec = 5 * 60
         self.total_pomodoros = 0
         self.start_time = timezone.now()
-        self.pomodoro_length = dt.timedelta(0, self.POMODORO_SEC)
+        self.pomodoro_length = dt.timedelta(0, pomodoro_sec)
         self.final_productive_time = self.start_time + self.pomodoro_length
         self.final_break_time = self.start_time + dt.timedelta(0,
-                                                               self.POMODORO_SEC + self.DELTA_SEC)
+                                                               pomodoro_sec + delta_sec)
 
-        print(f"Bug check 0: \nt_now: {self.start_time}\nend_time: {self.final_productive_time}")
-
-        print("Pomodoro Started!", "\nIt is now " + self.start_time.strftime("%H:%M") +
-              " hrs. \nTimer set for 25 mins.")
-
-    def run_timer(self):
+    @staticmethod
+    def run_timer():
+        """Add to DB start and end time of pomodoro productive session."""
         pomodoro = Pomodoro()
 
-        # just for testing purposess
+        # just for testing purposes
         counter = pomodoro.start_time.strftime("%H:%M:%S")
         user_name = "user" + counter
-        user = User.objects.create_user(user_name, 'blabla@honey.com', 'winniepassword')
+        user = User.objects.create_user(user_name, 'blabla@honey.com', 'password')
         user.last_name = 'holmes'
         print('\n\nTimer started!\n\n')
         ####
