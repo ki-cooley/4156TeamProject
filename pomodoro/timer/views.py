@@ -1,8 +1,26 @@
 """Views for timer."""
 from django.shortcuts import render, redirect
 from . import pomodoro_timer as p
+from django.contrib.auth.decorators import login_required
+
+from rest_framework import status, viewsets
+from .serializers import SessionActivitySerializer
+from .models import SessionActivity
+from rest_framework.response import Response
+
+class SessionActivityViewSet(viewsets.ModelViewSet):
+    queryset = SessionActivity.objects.all().order_by('user_id')
+    serializer_class = SessionActivitySerializer
+
+    def create(self, request, *args, **kwargs):
+        serializer = self.get_serializer(data=request.data, many=isinstance(request.data, list))
+        serializer.is_valid(raise_exception=True)
+        self.perform_create(serializer)
+        headers = self.get_success_headers(serializer.data)
+        return Response(serializer.data, status=status.HTTP_201_CREATED, headers=headers)
 
 
+# @login_required
 def start(response):
     """start view."""
     if response.method == "POST":
@@ -14,6 +32,13 @@ def start(response):
         if str(skip_value) == "skip_to_break":
             return redirect('/break/')
     else:
+        alldata = response.POST
+        usernamefield = alldata.get("username", 0)
+        firstnamefield =alldata.get("firstname", 0)
+        lastnamefield = alldata.get("lastname", 0)
+        passwordfield = alldata.get("password1", 0)
+        emailfield = alldata.get("email", 0)
+
         pomodoro = p.Pomodoro()
         pomodoro.run_timer()
         return render(response, "timer/start.html", {})
