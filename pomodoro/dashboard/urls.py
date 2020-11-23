@@ -6,6 +6,7 @@ from . import views
 router = routers.DefaultRouter()
 router.register(r'month', views.DashboardMonthlyAPI)
 router.register(r'week', views.DashboardWeeklyAPI)
+router.register(r'user', views.UserViewSet)
 router.register(r'', views.DashboardAPI)
 
 
