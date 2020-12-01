@@ -10,6 +10,9 @@ $ mysql.server start
 ```
 4. Access using your local mysql password and set up the database:
 ```
+For Windows Users, you have to add the following line (The path to mysqld may vary depending on the install location of MySQL on your system):
+C:\> cd "C:\Program Files\MySQL\MySQL Server 8.0\bin"
+
 $ mysql -u root -p
 mysql> CREATE DATABASE pomodoro_db;
 mysql> quit
@@ -19,11 +22,20 @@ mysql> quit
 ```
 $ pip install virtualenv
 $ python -m venv env
+
+For Windows Users (you have to be in the same directory as the env folder):
+$ env\Scripts\activate
+
+For Mac Users:
 $ source env/bin/activate
 ```
 7. Install the requirements:
 ```
 $ pip install -r requirements.txt
+$ pip install djangorestframework
+$ pip install markdown       # Markdown support for the browsable API.
+$ pip install django-filter    # Filtering support
+$ pip install django-crispy-forms
 ```
 8. Run the server:
 ```

@@ -4,7 +4,7 @@ from django import forms
 from django.contrib.auth.models import User
 
 class RegisterForm(UserCreationForm):
-    email = forms.EmailField()
+    email = forms.EmailField(required=True)
     firstname = forms.CharField(required=True)
     lastname = forms.CharField(required=True)
 

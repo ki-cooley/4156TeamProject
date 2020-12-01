@@ -14,7 +14,8 @@
         <p id="clock" style="font-size:200%" >25:00</p>
 
     <form action="" method="post">
-    <button name="start_timer"  type="input" id="pomodoro-start" value="start" >START</button>
+        {% csrf_token %}
+        <button name="start_timer"  type="input" id="pomodoro-start" value="start" >START</button>
     </form>
 
   <div id="progress"></div>

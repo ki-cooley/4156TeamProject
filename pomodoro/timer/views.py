@@ -20,7 +20,6 @@ class SessionActivityViewSet(viewsets.ModelViewSet):
         return Response(serializer.data, status=status.HTTP_201_CREATED, headers=headers)
 
 
-# @login_required
 def start(response):
     """start view."""
     if response.method == "POST":
@@ -59,10 +58,15 @@ def start_break(response):
 
 def home(response):
     """start endpoint."""
-    if response.method == "POST":
-        alldata = response.POST
-        start_button_value = alldata.get("start_timer", 0)
-        print("start_button_value : " + str(start_button_value))
-        # call timer function
-        return redirect('/start/')
-    return render(response, "timer/home.html", {})
+    if response.user.is_authenticated:
+        if response.method == "POST":
+            alldata = response.POST
+            start_button_value = alldata.get("start_timer", 0)
+            print("start_button_value : " + str(start_button_value))
+            # call timer function
+            return redirect('/start/')
+        return render(response, "timer/home.html", {})
+    else:
+        if response.method == "POST":
+            return redirect('/account/login/')
+        return render(response, "timer/home.html", {})

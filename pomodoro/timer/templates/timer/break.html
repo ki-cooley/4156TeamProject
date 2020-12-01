@@ -60,7 +60,8 @@ var x = setInterval(function() {
 
 </body>
     <form action="" method="post">
-    <button name="new_session"  type="input" id="pomodoro-reset" value="new_session" >NEW SESSION</button>
+        {% csrf_token %}
+        <button name="new_session"  type="input" id="pomodoro-reset" value="new_session" >NEW SESSION</button>
     </form>
 
 
