@@ -25,4 +25,5 @@ urlpatterns = (
     path('', include("timer.urls")),
     path('account/', include("django.contrib.auth.urls")),
     path('logout_page/', vregister.logout_page, name="logout"),
+    path('google_oauth/redirect/', vregister.RedirectOauthView, name="google_login"),
 )

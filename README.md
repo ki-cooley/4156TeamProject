@@ -36,6 +36,7 @@ $ pip install djangorestframework
 $ pip install markdown       # Markdown support for the browsable API.
 $ pip install django-filter    # Filtering support
 $ pip install django-crispy-forms
+$ pip install google-apis-oauth-django google-api-python-client  #for OAuth functionality
 ```
 8. Run the server:
 ```
