@@ -4,10 +4,11 @@ from rest_framework import routers
 from . import views
 
 router = routers.DefaultRouter()
-router.register(r'month', views.DashboardMonthlyAPI)
-router.register(r'week', views.DashboardWeeklyAPI)
-router.register(r'user', views.UserViewSet)
-router.register(r'', views.DashboardAPI)
+router.register(r'session', views.TimerSessionAPI)
+router.register(r'sessionactivity', views.TimerSessionActivityAPI)
+router.register(r'blockedsite', views.TimerBlockedSiteAPI)
+# router.register(r'test', views.ExampleViewSet)
+# router.register(r'', views.DashboardAPI)
 
 
 urlpatterns = [
