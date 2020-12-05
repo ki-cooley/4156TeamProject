@@ -21,15 +21,10 @@ class Pomodoro:
                                                                pomodoro_sec + delta_sec)
 
     @staticmethod
-    def run_timer():
+    def run_timer(user):
         """Add to DB start and end time of pomodoro productive session."""
         pomodoro = Pomodoro()
-
         # just for testing purposes
-        counter = pomodoro.start_time.strftime("%H:%M:%S")
-        user_name = "user" + counter
-        user = User.objects.create_user(user_name, 'blabla@honey.com', 'password')
-        user.last_name = 'holmes'
         print('\n\nTimer started!\n\n')
         ####
 
