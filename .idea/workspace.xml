@@ -20,33 +20,30 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="37bfd0b3-fa03-4e70-a92c-8c6680e510f2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/4156TeamProject.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/pip-20.3.dist-info/INSTALLER" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/pip-20.3.dist-info/LICENSE.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/pip-20.3.dist-info/METADATA" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/pip-20.3.dist-info/RECORD" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/pip-20.3.dist-info/WHEEL" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/pip-20.3.dist-info/entry_points.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/pip-20.3.dist-info/top_level.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/pip/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/pip/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/pip/_internal/cli/base_command.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/pip/_internal/cli/base_command.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/pip/_internal/cli/cmdoptions.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/pip/_internal/cli/cmdoptions.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/pip/_internal/commands/download.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/pip/_internal/commands/download.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/pip/_internal/commands/install.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/pip/_internal/commands/install.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Lib/site-packages/pip/_internal/commands/wheel.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Lib/site-packages/pip/_internal/commands/wheel.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Scripts/pip.exe" beforeDir="false" afterPath="$PROJECT_DIR$/env/Scripts/pip.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Scripts/pip3.8.exe" beforeDir="false" afterPath="$PROJECT_DIR$/env/Scripts/pip3.8.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Scripts/pip3.exe" beforeDir="false" afterPath="$PROJECT_DIR$/env/Scripts/pip3.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pomodoro/pomodoro/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/pomodoro/pomodoro/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pomodoro/register/templates/register/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/pomodoro/register/templates/register/register.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pomodoro/register/templates/registration/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/pomodoro/register/templates/registration/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pomodoro/register/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/pomodoro/register/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pomodoro/timer/templates/timer/register_base.html" beforeDir="false" afterPath="$PROJECT_DIR$/pomodoro/timer/templates/timer/register_base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cryptography-3.2.1-cp38-cp38-win_amd64.whl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/get-pip.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/whl_files/cachetools-4.1.1-py3-none-any.whl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/whl_files/cffi-1.14.4-cp38-cp38-win_amd64.whl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/whl_files/google_api_core-1.23.0-py2.py3-none-any.whl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/whl_files/google_api_python_client-1.12.8-py2.py3-none-any.whl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/whl_files/google_apis_oauth_django-0.1.0-py3-none-any.whl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/whl_files/google_auth-1.23.0-py2.py3-none-any.whl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/whl_files/google_auth_httplib2-0.0.4-py2.py3-none-any.whl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/whl_files/google_auth_oauthlib-0.4.2-py2.py3-none-any.whl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/whl_files/googleapis_common_protos-1.52.0-py2.py3-none-any.whl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/whl_files/httplib2-0.18.1-py3-none-any.whl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/whl_files/oauthlib-3.1.0-py2.py3-none-any.whl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/whl_files/pip-20.3.1-py2.py3-none-any.whl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/whl_files/protobuf-3.14.0-py2.py3-none-any.whl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/whl_files/pyOpenSSL-20.0.0-py2.py3-none-any.whl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/whl_files/pyasn1-0.4.8-py2.py3-none-any.whl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/whl_files/pyasn1_modules-0.2.8-py2.py3-none-any.whl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/whl_files/pycparser-2.20-py2.py3-none-any.whl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/whl_files/requests_oauthlib-1.3.0-py2.py3-none-any.whl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/whl_files/rsa-4.6-py3-none-any.whl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/whl_files/six-1.15.0-py2.py3-none-any.whl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/whl_files/uritemplate-3.0.1-py2.py3-none-any.whl" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,7 +72,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../pomodoro/4156TeamProject" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="PyConsoleConfigurable.Python Console" />
@@ -160,10 +157,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="222" y="118" width="638" height="507" key="EnvironmentVariablesDialog/0.0.1536.824@0.0.1536.824" timestamp="1607192324472" />
-    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1607087810445">
+    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1607202988336">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1607087810445" />
+    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1607202988336" />
     <state x="109" y="81" key="SettingsEditor" timestamp="1607192330387">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
