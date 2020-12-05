@@ -17,6 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from register import views as vregister
+from django.views.decorators.csrf import csrf_exempt
 
 urlpatterns = (
     path('admin/', admin.site.urls),
@@ -24,4 +25,5 @@ urlpatterns = (
     path('', include("timer.urls")),
     path('account/', include("django.contrib.auth.urls")),
     path('logout_page/', vregister.logout_page, name="logout"),
+    path('google_oauth/redirect/', vregister.RedirectOauthView, name="google_login"),
 )
