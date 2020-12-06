@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'crispy_forms',
     'timer.apps.TimerConfig',
     'register.apps.RegisterConfig',
+    'dashboard.apps.DashboardConfig',
 ]
 
 CSRF_COOKIE_SECURE = True
@@ -84,7 +85,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'pomodoro_db',
         'USER': 'root',
-        'PASSWORD': 'fn37v9xn396jj',
+        'PASSWORD': 'dbuserdbuser',
     }
 }
 

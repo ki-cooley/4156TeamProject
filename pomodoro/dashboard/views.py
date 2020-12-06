@@ -22,7 +22,7 @@ class TimerSessionAPI(viewsets.ModelViewSet):
 
 	@action(methods=['get'], detail=True, url_path='all', url_name='all-session')
 	def getUserTimerSession(self, request, pk=None):
-		allData = TimerSession.objects.filter(user_id=pk)
+		allData = TimerSession.objects.filter(user_id = request.user.id)
 		serializer = TimerSessionSerializer(allData, many=True)
 		return Response(serializer.data)
 

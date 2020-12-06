@@ -22,6 +22,7 @@ urlpatterns = (
     path('admin/', admin.site.urls),
     path('register/', vregister.register, name="register"),
     path('', include("timer.urls")),
+    path('dashboard/', include("dashboard.urls")),
     path('account/', include("django.contrib.auth.urls")),
     path('logout_page/', vregister.logout_page, name="logout"),
 )
