@@ -12,10 +12,14 @@ USER LOGIN
                 <form method="post" class="form-group">
                     {% csrf_token %}
                     {{ form|crispy }}
+                    <p>Want to use your google account? Click <a href="/google_oauth/redirect/">here</a></p>
                     <p>Don't have an account? Create one <a href="/register">here</a></p>
-                    <button type="submit" class="btn btn-success">Login</button>
+<!--                    <button type="submit" class="btn btn-success">Login</button>-->
+                    {% csrf_token %}
+                    <button type="input"  id="start" value="start" >Login</button>
                 </form>
             </div>
         </div>
     </div>
+
 {% endblock %}

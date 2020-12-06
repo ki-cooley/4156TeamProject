@@ -25,7 +25,7 @@ SECRET_KEY = 'c@0*@@t&_62^dj4&9j70r_0p9$je*k=pcvq=h%pwf_b4h7yhq0'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
 
 
 # Application definition
@@ -37,12 +37,15 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # 'timer',
     'rest_framework',
     'crispy_forms',
     'timer.apps.TimerConfig',
     'register.apps.RegisterConfig',
+    'dashboard.apps.DashboardConfig',
 ]
 
+CSRF_COOKIE_SECURE = False
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -58,7 +61,7 @@ ROOT_URLCONF = 'pomodoro.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -82,7 +85,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'pomodoro_db',
         'USER': 'root',
-        'PASSWORD': 'fn37v9xn396jj',
+        'PASSWORD': 'dbuserdbuser',
     }
 }
 
@@ -124,9 +127,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
-
 CRISPY_TEMPLATE_PACK="bootstrap4"
 
-LOGIN_REDIRECT_URL = "/"
-LOGOUT_REDIRECT_URL = "/logout_page"
-LOGIN_URL = "/account/login"
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/logout_page/'
+LOGIN_URL = '/account/login/'
+
