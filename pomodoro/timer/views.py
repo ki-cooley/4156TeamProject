@@ -26,19 +26,25 @@ def start(response):
         alldata = response.POST
         reset_button_value = alldata.get("reset_timer", 0)
         skip_value = alldata.get("skip_to_break", 0)
-
         if str(reset_button_value) == "reset":
             return redirect('/start/')
         if str(skip_value) == "skip_to_break":
-            current_user = response.user
-            pomodoro = p.Pomodoro()
-            pomodoro.run_timer(current_user)
             return redirect('/break/')
     else:
-        current_user = response.user
+        alldata = response.POST
+        usernamefield = alldata.get("username", 0)
+        firstnamefield =alldata.get("firstname", 0)
+        lastnamefield = alldata.get("lastname", 0)
+        passwordfield = alldata.get("password1", 0)
+        emailfield = alldata.get("email", 0)
+
         pomodoro = p.Pomodoro()
-        pomodoro.run_timer(current_user)
+        pomodoro.run_timer()
         return render(response, "timer/start.html", {})
+
+def dashboard(request):
+    """start view."""
+    return redirect('/dashboard/' + request.user.id)
 
 
 def start_break(response):
@@ -49,9 +55,6 @@ def start_break(response):
         reset_button_value = alldata.get("new_session", 0)
         print("new_session : " + str(reset_button_value))
         if str(reset_button_value) == "new_session":
-            current_user = response.user
-            pomodoro = p.Pomodoro()
-            pomodoro.run_timer(current_user)
             return redirect('/start/')
     else:
         return render(response, "timer/break.html", {})
@@ -60,12 +63,11 @@ def start_break(response):
 def home(response):
     """start endpoint."""
     if response.user.is_authenticated:
-
-        current_user = response.user
-        print( current_user.id)
-        print("USER ID ")
         if response.method == "POST":
             alldata = response.POST
+            print(alldata['start_timer'])
+            if alldata.get("start_timer", 0) == "dashboard":
+                return redirect("/dashboard/session/" + str(response.user.id) +"/all")
             start_button_value = alldata.get("start_timer", 0)
             print("start_button_value : " + str(start_button_value))
             # call timer function
