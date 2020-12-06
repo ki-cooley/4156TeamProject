@@ -37,7 +37,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'timer',
     'rest_framework',
     'crispy_forms',
     'timer.apps.TimerConfig',
@@ -83,7 +82,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'pomodoro_db',
         'USER': 'root',
-        'PASSWORD': 'Wangyifei970504',
+        'PASSWORD': 'fn37v9xn396jj',
     }
 }
 

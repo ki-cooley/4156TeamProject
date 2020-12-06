@@ -8,6 +8,7 @@ from .serializers import SessionActivitySerializer
 from .models import SessionActivity
 from rest_framework.response import Response
 
+
 class SessionActivityViewSet(viewsets.ModelViewSet):
     queryset = SessionActivity.objects.all().order_by('user_id')
     serializer_class = SessionActivitySerializer
@@ -19,11 +20,14 @@ class SessionActivityViewSet(viewsets.ModelViewSet):
         headers = self.get_success_headers(serializer.data)
         return Response(serializer.data, status=status.HTTP_201_CREATED, headers=headers)
 
+
 def index(response):
-    return HttpResponse ("<h1>Welcome to Pomodoro timer!</h1>")
+    return HttpResponse("<h1>Welcome to Pomodoro timer!</h1>")
+
 
 def home(response):
     return render(response, "timer/home.html", {})
+
 
 @login_required
 def start(response):
@@ -32,13 +36,13 @@ def start(response):
         reset_button_value = alldata.get("reset_timer", 0)
         skip_value = alldata.get("skip_to_break", 0)
         if (str(reset_button_value) == "reset"):
-            return redirect ('/start/')
+            return redirect('/start/')
         if (str(skip_value) == "skip_to_break"):
-            return redirect ('/break/')
+            return redirect('/break/')
     else:
         alldata = response.POST
         usernamefield = alldata.get("username", 0)
-        firstnamefield =alldata.get("firstname", 0)
+        firstnamefield = alldata.get("firstname", 0)
         lastnamefield = alldata.get("lastname", 0)
         passwordfield = alldata.get("password1", 0)
         emailfield = alldata.get("email", 0)
@@ -47,6 +51,7 @@ def start(response):
         pomodoro.run_timer()
         return render(response, "timer/start.html", {})
 
+
 def start_break(response):
     if response.method == "POST":
         print("Hello from break()")
@@ -54,9 +59,10 @@ def start_break(response):
         reset_button_value = alldata.get("new_session", 0)
         print("new_session : " + str(reset_button_value))
         if (str(reset_button_value) == "new_session"):
-            return redirect ('/start/')
+            return redirect('/start/')
     else:
         return render(response, "timer/break.html", {})
+
 
 def output(response):
     if response.method == "POST":
@@ -67,8 +73,5 @@ def output(response):
         # call timer function
         return redirect('/start/')
 
-    else: #GET method
+    else:  # GET method
         return render(response, "timer/home.html", {})
-
-        
-    
