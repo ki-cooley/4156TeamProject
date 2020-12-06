@@ -55,3 +55,50 @@ class TestViews(TestCase):
         request.user = AnonymousUser()
         response = v.start_break(request)
         assert response.status_code == 200
+
+    def test_start_button(self):
+        c = Client()
+        response = c.post('/', {'start_button_value': 'start'})
+        print("STATUS IS " + str(response.status_code))
+        self.assertEqual(response.status_code, 302)
+
+    def test_skip_from_home_view(self):
+        data = {'skip_to_break': 'skip_to_break'}
+        request = self.factory.post('/start/', data)
+        request.user = mixer.blend(User)
+        response = v.home(request)
+        assert response.status_code == 302
+
+    def test_start_break_from(self):
+        data = {'new_session': 'new_session'}
+        request = self.factory.post('/break/', data)
+        request.user = mixer.blend(User)
+        response = v.start_break(request)
+        assert response.status_code == 302
+
+
+    def test_start_post(self):
+        data = {'new_session': 'new_session'}
+        request = self.factory.post('/break/', data)
+        request.user = mixer.blend(User)
+        response = v.start(request)
+        # assert response.status_code == 302
+
+    def test_start_post_reset(self):
+        data = {'reset_timer': 'reset'}
+        request = self.factory.post('/break/', data)
+        request.user = mixer.blend(User)
+        response = v.start(request)
+
+    def test_start_post_skip(self):
+        data = {'skip_to_break': 'skip_to_break'}
+        request = self.factory.post('/break/', data)
+        request.user = mixer.blend(User)
+        response = v.start(request)
+
+    def test_start_post_else(self):
+        data = {'skip_to_break': 'something'}
+        request = self.factory.get('/break/', data)
+        request.user = mixer.blend(User)
+        response = v.start(request)
+        assert response.status_code == 200
