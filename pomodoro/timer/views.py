@@ -4,8 +4,8 @@ from . import pomodoro_timer as p
 from django.contrib.auth.decorators import login_required
 
 from rest_framework import status, viewsets
-from .serializers import SessionActivitySerializer
-from .models import SessionActivity
+from .serializers import SessionActivitySerializer, BlockedSiteSerializer
+from .models import SessionActivity, BlockedSite
 from rest_framework.response import Response
 
 
@@ -20,6 +20,28 @@ class SessionActivityViewSet(viewsets.ModelViewSet):
         headers = self.get_success_headers(serializer.data)
         return Response(serializer.data, status=status.HTTP_201_CREATED, headers=headers)
 
+class BlockedSiteViewSet(viewsets.ModelViewSet):
+    #queryset = BlockedSite.objects.all().order_by('user_id')
+    serializer_class = BlockedSiteSerializer
+
+    def create(self, request, *args, **kwargs):
+        serializer = self.get_serializer(data=request.data, many=isinstance(request.data, list))
+        serializer.is_valid(raise_exception=True)
+        self.perform_create(serializer)
+        headers = self.get_success_headers(serializer.data)
+        return Response(serializer.data, status=status.HTTP_201_CREATED, headers=headers)
+
+    #change to return sites of only currently authenticated user later
+    def get_queryset(self):
+        """
+        Optionally restricts the returned purchases to a given user,
+        by filtering against a `user_id` query parameter in the URL.
+        """
+        queryset = BlockedSite.objects.all()
+        user_id = self.request.query_params.get('user_id', None)
+        if user_id is not None:
+            queryset = queryset.filter(user_id=user_id)
+        return queryset
 
 def start(response):
     """start view."""

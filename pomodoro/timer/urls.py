@@ -7,6 +7,7 @@ from . import views
 
 router = routers.DefaultRouter()
 router.register(r'track', views.SessionActivityViewSet)
+router.register(r'block', views.BlockedSiteViewSet, basename='blockedsite')
 
 urlpatterns = [
     path("", csrf_exempt(views.home), name="home"),
