@@ -8,6 +8,7 @@ from .serializers import SessionActivitySerializer
 from .models import SessionActivity
 from rest_framework.response import Response
 
+
 class SessionActivityViewSet(viewsets.ModelViewSet):
     queryset = SessionActivity.objects.all().order_by('user_id')
     serializer_class = SessionActivitySerializer
