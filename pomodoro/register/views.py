@@ -73,8 +73,8 @@ def github_token(code):
     res = requests.post(token_url, headers=header)
     # print(">>>>>>>>>>>>>>>>>>")
     # print(res.status_code)
-    # print(">>>>>>>>>>>>>>>>>>")
-    if res.status_code == 200 and res.json()['error'] is None:
+    # print(">>>>>>>>>>>>>>>>>>")and res.json()['error'] is None
+    if res.status_code == 200 :
         res_dict = res.json()
         print(res_dict)
         print(type(res_dict))
