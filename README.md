@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/ki-cooley/4156TeamProject.svg?branch=main)](https://travis-ci.com/ki-cooley/4156TeamProject)
+
 # 4156TeamProject
 A productivity web app combining a pomodoro timer with website blocking and activity tracking.
 
