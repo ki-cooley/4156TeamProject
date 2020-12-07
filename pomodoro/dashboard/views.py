@@ -1,6 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from rest_framework import viewsets
 from django.db import connection, transaction
+from django.contrib.auth.decorators import login_required
 from .serializers import *
 import datetime
 from django.utils import timezone
@@ -85,4 +86,19 @@ class TimerBlockedSiteAPI(viewsets.ModelViewSet):
 		lastMonth = TimerBlockedsite.objects.filter(time__range=(start_date, datetime.datetime.now()), user_id=pk)
 		serializer = TimerBlockedsiteSerializer(lastMonth, many=True)
 		return Response(serializer.data)
+
+@login_required
+def dashboardHome(request):
+	if request.method == "POST":
+		alldata = request.POST
+		print(alldata)
+		if alldata.get("entire_summary", 0) == "summary":
+			return sessionSummary(request)
+	return render(request, "dashboard_home.html", {})
+
+@login_required
+def sessionSummary(request):
+    if request.user.is_authenticated:
+        return redirect("/dashboard/session/" + str(request.user.id) +"/all")
+
 

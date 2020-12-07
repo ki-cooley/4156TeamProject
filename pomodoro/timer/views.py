@@ -66,9 +66,9 @@ def home(response):
         print("USER ID ")
         if response.method == "POST":
             alldata = response.POST
-            if alldata.get("start_timer", 0) == "dashboard":
-                return redirect("/dashboard/session/" + str(response.user.id) +"/all")
             start_button_value = alldata.get("start_timer", 0)
+            if(start_button_value == 'dashboard'):
+                return redirect('/dashboard/home')
             print("start_button_value : " + str(start_button_value))
             # call timer function
             return redirect('/start/')
