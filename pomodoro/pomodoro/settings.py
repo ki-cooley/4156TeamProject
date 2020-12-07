@@ -85,7 +85,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'pomodoro_db',
         'USER': 'root',
-        'PASSWORD': 'dbuserdbuser',
+        'PASSWORD': 'fn37v9xn396jj',
     }
 }
 
