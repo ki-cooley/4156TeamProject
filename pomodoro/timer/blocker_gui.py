@@ -15,13 +15,6 @@ if os.geteuid() == 0:
                 ['Edit', ['Paste', ['Special', 'Normal', ], 'Undo'], ],
                 ['Help', 'About...'], ]
 
-    # ------ Column Definition ------ #
-    column1 = [[sg.Text('Column 1', background_color='#F7F3EC', justification='center', size=(10, 1))],
-                [sg.Spin(values=('Spin Box 1', '2', '3'), initial_value='Spin Box 1')],
-                [sg.Spin(values=('Spin Box 1', '2', '3'), initial_value='Spin Box 2')],
-                [sg.Spin(values=('Spin Box 1', '2', '3'), initial_value='Spin Box 3')]]
-
- #   layout = [Personalized_block_list(x) for x in range(1, 6)]
     layout = [
         [sg.Menu(menu_def, tearoff=True)],
         # 0
@@ -81,9 +74,9 @@ if os.geteuid() == 0:
             block_time = 240
             break
 
-    window.close()
-    #print(event)
-    blocker(values, 2)
+    window.close() 
+    if event == "Submit":
+        blocker(values, block_time)
     print(values)
 
 
