@@ -20,7 +20,7 @@ class SessionActivityViewSet(viewsets.ModelViewSet):
         headers = self.get_success_headers(serializer.data)
         return Response(serializer.data, status=status.HTTP_201_CREATED, headers=headers)
 
-
+@login_required
 def start(response):
     """start view."""
     if response.method == "POST":
@@ -41,7 +41,7 @@ def start(response):
         pomodoro.run_timer(current_user)
         return render(response, "timer/start.html", {})
 
-
+@login_required
 def start_break(response):
     """start break endpoint."""
     if response.method == "POST":
@@ -57,11 +57,10 @@ def start_break(response):
     else:
         return render(response, "timer/break.html", {})
 
-
+@login_required
 def home(response):
     """start endpoint."""
     if response.user.is_authenticated:
-
         current_user = response.user
         print( current_user.id)
         print("USER ID ")

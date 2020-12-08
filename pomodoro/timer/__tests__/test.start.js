@@ -21,13 +21,23 @@ test('Check reset button', () => {
 
   const demo = document.getElementById('demo');
   const reset = document.getElementById('pomodoro-reset');
-//  const todolist = document.getElementById('todoList');
 
   reset.value = 'reset';
-//  reset.click();
 
   expect(demo.innerHTML).toBe('Starting Timer');
 });
+
+test('Check reset button with invalid input', () => {
+  document.body.innerHTML = html;
+
+  const demo = document.getElementById('demo');
+  const break_button = document.getElementById('pomodoro-reset');
+
+  break_button.value = 'skip_to_breakbad';
+
+  expect.not.stringMatching(demo.innerHTML, 'Starting Timer');
+});
+
 
 test('Check break button', () => {
   document.body.innerHTML = html;
@@ -38,4 +48,15 @@ test('Check break button', () => {
   break_button.value = 'skip_to_break';
 
   expect(demo.innerHTML).toBe('Starting Timer');
+});
+
+test('Check break button with invalid input', () => {
+  document.body.innerHTML = html;
+
+  const demo = document.getElementById('demo');
+  const break_button = document.getElementById('pomodoro-break');
+
+  break_button.value = 'skip_to_breakbad';
+
+  expect.not.stringMatching(demo.innerHTML, 'Starting Timer');
 });
