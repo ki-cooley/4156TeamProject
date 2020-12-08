@@ -8,6 +8,7 @@ env:
 install:
       - pip install -r requirements.txt
 before_script:
+      - echo "USE mysql;\nUPDATE user SET password=PASSWORD('fn37v9xn396jj') WHERE user='root';\nFLUSH PRIVILEGES;\n" | mysql -u root
       - mysql -e 'create database test;' -u root
 script:
       - python pomodoro/manage.py test
