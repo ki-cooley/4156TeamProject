@@ -21,7 +21,9 @@
   <component name="ChangeListManager">
     <list default="true" id="37bfd0b3-fa03-4e70-a92c-8c6680e510f2" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pomodoro/register/templates/registration/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/pomodoro/register/templates/registration/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pomodoro/timer/templates/timer/break.html" beforeDir="false" afterPath="$PROJECT_DIR$/pomodoro/timer/templates/timer/break.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pomodoro/timer/templates/timer/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/pomodoro/timer/templates/timer/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pomodoro/timer/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/pomodoro/timer/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
