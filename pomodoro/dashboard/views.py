@@ -7,6 +7,7 @@ import datetime
 from django.utils import timezone
 from rest_framework.decorators import action
 from rest_framework.response import Response
+import requests
 
 # class DashboardAPI(viewsets.ModelViewSet):
 # 	serializer_class = DashboardSerializer
@@ -89,16 +90,27 @@ class TimerBlockedSiteAPI(viewsets.ModelViewSet):
 
 @login_required
 def dashboardHome(request):
-	if request.method == "POST":
-		alldata = request.POST
-		print(alldata)
-		if alldata.get("entire_summary", 0) == "summary":
-			return sessionSummary(request)
-	return render(request, "dashboard_home.html", {})
+	user_data = sessionSummary(request)
+	return render(request, "dashboard_home.html", {"all_items" : user_data})
 
 @login_required
 def sessionSummary(request):
     if request.user.is_authenticated:
-        return redirect("/dashboard/session/" + str(request.user.id) +"/all")
+         allData = TimerSession.objects.filter(user_id = request.user.id)
+         return allData
+    else:
+    	return None
+
+@login_required
+def detail(request, pk):
+	if request.user.is_authenticated:
+		sessionData = TimerSession.objects.filter(user_id=request.user.id, id=pk)
+		start, end = (sessionData[0].start_time, sessionData[0].start_time)
+		activityData = TimerSessionactivity.objects.filter(user_id=request.user.id, visit_timestamp__range= (start, end))
+		blockedsitesData = TimerBlockedsite.objects.filter(user_id=request.user.id)
+
+		return render(request, "detail.html", {"session_data" : sessionData,
+			"activity_data": activityData, 
+			"blockedsites_data": blockedsitesData})
 
 

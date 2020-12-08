@@ -14,6 +14,7 @@ router.register(r'blockedsite', views.TimerBlockedSiteAPI)
 urlpatterns = [
 	path('home/', csrf_exempt(views.dashboardHome), name='dashboard-home'),
 	path('summary/', csrf_exempt(views.sessionSummary), name='summary'),
+	path('detail/<pk>', views.detail, name='detail'),
     path('', include(router.urls)),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework'))
 ]
