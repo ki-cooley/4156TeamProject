@@ -8,7 +8,6 @@ env:
 install:
       - pip install -r requirements.txt
 before_script:
-      - if [ -n "$GH_TOKEN" ]; then composer config github-oauth.github.com ${GH_TOKEN}; fi;
       - mysql -e 'create database test;' -u root
 script:
       - python pomodoro/manage.py test
