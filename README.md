@@ -55,6 +55,10 @@ $ jest
 ```
 $ py.test
 ``` 
-Note: Make sure you quit Chrome app for tracker.py unittest to pass
+Note: 
+```
+$ Make sure you quit Chrome app for tracker.py unittest to pass
+$ Make sure to run blocker_gui.py in terminal to login as admin user
+```
 
     
