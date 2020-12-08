@@ -11,7 +11,7 @@ before_script:
       - mysql -e 'create database test;' -u root
 script:
       - python pomodoro/manage.py test
-      - cd pomodoro/timer && jest
+      - cd pomodoro && py.test
 deploy:
   provider: releases
   api_key:
