@@ -7,7 +7,6 @@
 # Feel free to rename the models, but don't rename db_table values or field names.
 from django.db import models
 
-
 class AuthGroup(models.Model):
     name = models.CharField(unique=True, max_length=150)
 
@@ -128,12 +127,9 @@ class TimerBlockedsite(models.Model):
 
 
 class TimerSession(models.Model):
-    start_day = models.DateField()
-    start_time = models.TimeField()
-    end_day = models.DateField()
-    end_time = models.TimeField()
+    start_time = models.DateTimeField()
+    end_time = models.DateTimeField()
     user_id = models.ForeignKey(AuthUser, models.DO_NOTHING)
-    pomodoro_completed = models.IntegerField()
 
     class Meta:
         managed = False
@@ -143,7 +139,7 @@ class TimerSession(models.Model):
 class TimerSessionactivity(models.Model):
     site_url = models.CharField(max_length=200)
     visit_timestamp = models.DateTimeField()
-    session_id = models.ForeignKey(TimerSession, models.DO_NOTHING)
+    user_id = models.ForeignKey(AuthUser, models.DO_NOTHING)
 
     class Meta:
         managed = False

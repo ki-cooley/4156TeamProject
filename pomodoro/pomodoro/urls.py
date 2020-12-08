@@ -22,15 +22,10 @@ from django.views.decorators.csrf import csrf_exempt
 urlpatterns = (
     path('admin/', admin.site.urls),
     path('register/', vregister.register, name="register"),
+    path('dashboard/', include('dashboard.urls')),
     path('', include("timer.urls")),
     path('account/', include("django.contrib.auth.urls")),
     path('logout_page/', vregister.logout_page, name="logout"),
     path('login/github/', include('social_django.urls', namespace='social')),
     path('github/redirect/', vregister.github_redirect, name='github_redirect'),
-
-    # path('login/github/', include('social_django.urls', namespace='social')),
-    # path('google_oauth/redirect/', vregister.CallbackView, name="google_callback"),
 )
-
-
-

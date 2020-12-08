@@ -23,7 +23,8 @@ def register(response):
         form = RegisterForm(response.POST)
         if form.is_valid():
             form.save()
-            return redirect("/account/login/")
+            # return redirect("/account/login/")
+            return render(response, "registration/login.html", {})
     else:
         form = RegisterForm()
     return render(response, "register/register.html", {"form": form})
@@ -37,11 +38,6 @@ def logout_page(response):
 
 
 def github_user(access_token):
-    """
-    通过传入的access_token，带上access_token参数，向GitHub用户API发送请求以获取用户信息；
-    :param access_token: 用于访问API的token
-    :return: 成功返回用户信息，失败返回None
-    """
     user_url = 'https://api.github.com/user'
     access_token = 'token {}'.format(access_token)
     headers = {
@@ -58,11 +54,6 @@ def github_user(access_token):
 
 
 def github_token(code):
-    """
-    通过传入的 code 参数，带上client_id、client_secret、和code请求GitHub，以获取access_token
-    :param code: 重定向获取到的code参数
-    :return: 成功返回acces_token；失败返回None；
-    """
     token_url = 'https://github.com/login/oauth/access_token?' \
                 'client_id={}&client_secret={}&code={}'
     token_url = token_url.format(SOCIAL_AUTH_GITHUB_KEY, SOCIAL_AUTH_GITHUB_SECRET,

@@ -8,6 +8,7 @@ from .serializers import SessionActivitySerializer
 from .models import SessionActivity
 from rest_framework.response import Response
 
+
 class SessionActivityViewSet(viewsets.ModelViewSet):
     queryset = SessionActivity.objects.all().order_by('user_id')
     serializer_class = SessionActivitySerializer
@@ -26,20 +27,18 @@ def start(response):
         alldata = response.POST
         reset_button_value = alldata.get("reset_timer", 0)
         skip_value = alldata.get("skip_to_break", 0)
+
         if str(reset_button_value) == "reset":
             return redirect('/start/')
         if str(skip_value) == "skip_to_break":
+            current_user = response.user
+            pomodoro = p.Pomodoro()
+            pomodoro.run_timer(current_user)
             return redirect('/break/')
     else:
-        alldata = response.POST
-        usernamefield = alldata.get("username", 0)
-        firstnamefield =alldata.get("firstname", 0)
-        lastnamefield = alldata.get("lastname", 0)
-        passwordfield = alldata.get("password1", 0)
-        emailfield = alldata.get("email", 0)
-
+        current_user = response.user
         pomodoro = p.Pomodoro()
-        pomodoro.run_timer()
+        pomodoro.run_timer(current_user)
         return render(response, "timer/start.html", {})
 
 
@@ -55,6 +54,9 @@ def start_break(response):
             return redirect('/account/logout/')
         if str(reset_button_value) == "new_session":
             print("new_session : " + str(reset_button_value))
+            current_user = response.user
+            pomodoro = p.Pomodoro()
+            pomodoro.run_timer(current_user)
             return redirect('/start/')
     else:
         return render(response, "timer/break.html", {})
@@ -63,6 +65,9 @@ def start_break(response):
 def home(response):
     """start endpoint."""
     if response.user.is_authenticated:
+        current_user = response.user
+        print( current_user.id)
+        print("USER ID ")
         if response.method == "POST":
             alldata = response.POST
             start_button_value = alldata.get("start_timer", 0)
@@ -74,6 +79,8 @@ def home(response):
             if str(logout_button_value) == "log_out":
                 print("logout_button_value : " + str(logout_button_value))
                 return redirect('/account/logout/')
+            if(start_button_value == 'dashboard'):
+                return redirect('/dashboard/home')
         return render(response, "timer/home.html", {})
     else:
         if response.method == "POST":

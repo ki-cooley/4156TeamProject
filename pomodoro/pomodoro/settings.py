@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'crispy_forms',
     'timer.apps.TimerConfig',
     'register.apps.RegisterConfig',
+    'dashboard.apps.DashboardConfig',
     'social_django',
 ]
 

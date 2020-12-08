@@ -19,7 +19,96 @@
     <select />
   </component>
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="37bfd0b3-fa03-4e70-a92c-8c6680e510f2" name="Default Changelist" comment="" />
+=======
+    <list default="true" id="37bfd0b3-fa03-4e70-a92c-8c6680e510f2" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.travis.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Document Submissions/Test Coverage Reports/coverage-report-v2.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Document Submissions/Test Coverage Reports/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pomodoro/.coveragerc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pomodoro/dashboard/templates/base.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pomodoro/dashboard/templates/dashboard_home.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pomodoro/dashboard/templates/detail.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pomodoro/dashboard/tests/test_urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pomodoro/dashboard/tests/test_views.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pomodoro/htmlcov/coverage_html.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pomodoro/htmlcov/dashboard___init___py.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pomodoro/htmlcov/dashboard_admin_py.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pomodoro/htmlcov/dashboard_apps_py.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pomodoro/htmlcov/dashboard_models_py.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pomodoro/htmlcov/dashboard_serializers_py.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pomodoro/htmlcov/dashboard_urls_py.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pomodoro/htmlcov/dashboard_views_py.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pomodoro/htmlcov/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pomodoro/htmlcov/jquery.ba-throttle-debounce.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pomodoro/htmlcov/jquery.hotkeys.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pomodoro/htmlcov/jquery.isonscreen.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pomodoro/htmlcov/jquery.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pomodoro/htmlcov/jquery.tablesorter.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pomodoro/htmlcov/keybd_closed.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pomodoro/htmlcov/keybd_open.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pomodoro/htmlcov/pomodoro___init___py.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pomodoro/htmlcov/pomodoro_settings_py.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pomodoro/htmlcov/pomodoro_urls_py.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pomodoro/htmlcov/register___init___py.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pomodoro/htmlcov/register_admin_py.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pomodoro/htmlcov/register_apps_py.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pomodoro/htmlcov/register_forms_py.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pomodoro/htmlcov/register_models_py.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pomodoro/htmlcov/register_views_py.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pomodoro/htmlcov/status.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pomodoro/htmlcov/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pomodoro/htmlcov/timer___init___py.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pomodoro/htmlcov/timer_admin_py.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pomodoro/htmlcov/timer_apps_py.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pomodoro/htmlcov/timer_models_py.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pomodoro/htmlcov/timer_pomodoro_timer_py.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pomodoro/htmlcov/timer_serializers_py.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pomodoro/htmlcov/timer_urls_py.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pomodoro/htmlcov/timer_views_py.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pomodoro/pytest.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pomodoro/timer/__tests__/test.start.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pomodoro/timer/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pomodoro/timer/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pomodoro/timer/tests/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pomodoro/timer/tests/test_tracker.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pomodoro/timer/tests/test_urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pomodoro/timer/tests/test_views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pomodoro/dashboard/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/pomodoro/dashboard/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pomodoro/dashboard/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/pomodoro/dashboard/serializers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pomodoro/dashboard/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/pomodoro/dashboard/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pomodoro/dashboard/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/pomodoro/dashboard/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pomodoro/pomodoro/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/pomodoro/pomodoro/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pomodoro/pomodoro/asgi.py" beforeDir="false" afterPath="$PROJECT_DIR$/pomodoro/pomodoro/asgi.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pomodoro/pomodoro/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/pomodoro/pomodoro/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pomodoro/pomodoro/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/pomodoro/pomodoro/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pomodoro/pomodoro/wsgi.py" beforeDir="false" afterPath="$PROJECT_DIR$/pomodoro/pomodoro/wsgi.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pomodoro/register/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/pomodoro/register/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pomodoro/register/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/pomodoro/register/apps.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pomodoro/register/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/pomodoro/register/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pomodoro/register/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/pomodoro/register/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pomodoro/register/templates/register/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/pomodoro/register/templates/register/register.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pomodoro/register/templates/registration/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/pomodoro/register/templates/registration/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pomodoro/register/templates/registration/logout.html" beforeDir="false" afterPath="$PROJECT_DIR$/pomodoro/register/templates/registration/logout.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pomodoro/register/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/pomodoro/register/tests.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pomodoro/register/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/pomodoro/register/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pomodoro/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/pomodoro/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pomodoro/timer/blocker.py" beforeDir="false" afterPath="$PROJECT_DIR$/pomodoro/timer/blocker.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pomodoro/timer/browserhistory.py" beforeDir="false" afterPath="$PROJECT_DIR$/pomodoro/timer/browserhistory.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pomodoro/timer/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/pomodoro/timer/migrations/0001_initial.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pomodoro/timer/pomodoro_timer.py" beforeDir="false" afterPath="$PROJECT_DIR$/pomodoro/timer/pomodoro_timer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pomodoro/timer/pomodoro_timer_copy.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pomodoro/timer/templates/timer/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/pomodoro/timer/templates/timer/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pomodoro/timer/templates/timer/start.html" beforeDir="false" afterPath="$PROJECT_DIR$/pomodoro/timer/templates/timer/start.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pomodoro/timer/tests.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pomodoro/timer/tracker.py" beforeDir="false" afterPath="$PROJECT_DIR$/pomodoro/timer/tracker.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pomodoro/timer/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/pomodoro/timer/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+    </list>
+>>>>>>> main
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
