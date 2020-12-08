@@ -16,18 +16,18 @@ script:
 #       - cd pomodoro && py.test
 #       - cd pomodoro && python manage.py test
       - cd pomodoro && py.test --ignore=timer/tests/test_tracker.py
-# deploy:
-#   provider: releases
-#   api_key:
-#         secure: ${GH_TOKEN}
-#   file: "travis_report"
-#   skip_cleanup: true
-#   on:
-#     tags: true
 deploy:
-  provider: pages
+  provider: releases
+  api_key:
+        secure: ${GH_TOKEN}
+  file: "travis_report"
   skip_cleanup: true
-  github_token: ${GH_TOKEN}  # Set in the settings page of your repository, as a secure variable
-  keep_history: true
   on:
-    branch: master
+    tags: true
+# deploy:
+#   provider: pages
+#   skip_cleanup: true
+#   github_token: ${GH_TOKEN}  # Set in the settings page of your repository, as a secure variable
+#   keep_history: true
+#   on:
+#     branch: master
