@@ -5,7 +5,7 @@ from django.views.decorators.csrf import csrf_exempt
 from . import views
 
 router = routers.DefaultRouter()
-router.register(r'session', views.TimerSessionAPI)
+router.register(r'session', views.TimerSessionAPI, basename='timer')
 router.register(r'sessionactivity', views.TimerSessionActivityAPI)
 router.register(r'blockedsite', views.TimerBlockedSiteAPI)
 
