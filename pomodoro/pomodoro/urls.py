@@ -22,7 +22,9 @@ from django.views.decorators.csrf import csrf_exempt
 urlpatterns = (
     path('admin/', admin.site.urls),
     path('register/', vregister.register, name="register"),
+    path('dashboard/', include('dashboard.urls')),
     path('', include("timer.urls")),
     path('account/', include("django.contrib.auth.urls")),
     path('logout_page/', vregister.logout_page, name="logout"),
+    path('google_oauth/redirect/', vregister.RedirectOauthView, name="google_login"),
 )

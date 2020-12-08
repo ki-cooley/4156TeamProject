@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block content %}
+<p class="h4">Pomodoro Sessions</p>
+<table class="table table-dark table-hover" id="itemTable">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Start</th>
+      <th scope="col">End</th>
+      <th scope="col">Detail</th>
+    </tr>
+  </thead>
+  <tbody>
+{% if all_items %}
+    {% for item in all_items %}
+    <tr>
+      <th scope="row"></th>
+      <td>{{item.start_time}}</td>
+      <td>{{item.end_time}}</td>
+      <td><a href="{% url 'detail' item.id %}">Detail</a></td>
+    </tr>
+    {% endfor %}
+{% endif %}
+    </tbody>
+</table>
+
+<script>
+ (function() {
+    var table = document.getElementsByTagName('table')[0],
+    rows = table.getElementsByTagName('tr'),
+    text = 'textContent' in document ? 'textContent' : 'innerText';
+    for (var i = 1, len = rows.length; i < len; i++) {
+        rows[i].children[0][text] = i;
+    }
+
+ })();
+ </script>
+{% endblock %}

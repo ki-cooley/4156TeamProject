@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/ki-cooley/4156TeamProject.svg?branch=main)](https://travis-ci.com/ki-cooley/4156TeamProject)
+
 # 4156TeamProject
 A productivity web app combining a pomodoro timer with website blocking and activity tracking.
 
@@ -42,3 +44,16 @@ $ pip install django-crispy-forms
 $ python manage.py runserver
 ```
 9. Navigate to http://127.0.0.1:8000 in your browser
+
+10. To run front-end tests: 
+```
+$ cd pomodoro/timer
+$ jest
+```
+11. To run back-end tests: 
+```
+$ py.test
+``` 
+Note: Make sure you quit Chrome app for tracker.py unittest to pass
+
+    

@@ -1,66 +1,83 @@
-"""
-a simple website blocker worked by redirecting desired website's ip
-to ip "127.0.0.1" which is the localhost
-"""
-
 import time
 from datetime import datetime, timedelta
+import platform
 
-# sample websites that will be blocked
-sites_to_block = [
-    "www.facebook.com",  "facebook.com",
-    "www.youtube.com", "youtube.com",
-    "www.gmail.com", "gmail.com"
-]
+def blocker(values, block_time):
 
-# host path specific to os
-LINUX = "/etc/hosts"
-WINDOWS = r"C:\Windows\System32\drivers\etc\hosts"
-REDIRECT = "127.0.0.1"
-HOST_PATH = ""
-SET_OS = False
+    # sample websites that will be blocked
+    social_media = [
+        "www.facebook.com", "facebook.com",
+        "www.twitter.com", "twitter.com",
+        "www.whatsapp.com", "whatsapp.com",
+        "www.tumblr.com", "tumblr.com",
+        "www.reddit.com", "reddit.com"
+        "www.pinterest.com", "pinterest.com",
+        "www.sina.com", "sina.com"
+    ]
 
-# asking for user input of os, will change to obtain from the website
-while not SET_OS:
-    oper_sys = input("Please indicate your operating system (Linux/Windows): ")
+    entertainment = [
+        "www.youtube.com", "youtube.com",
+        "www.tiktok.com", "tiktok.com",
+        "www.hulu.com", "hulu.com"
+        "www.steam.com", "steam.com",
+        "www.crunchyroll.com", "crunchyroll.com",
+        "www.douban.com", "douban.com"
 
-    if oper_sys == "Linux":
-        HOST_PATH = LINUX
-        SET_OS = True
-    elif oper_sys == "Windows":
-        HOST_PATH = WINDOWS
-        SET_OS = True
-    else:
-        print("Please enter a valid operating system")
+    ]
 
-# asking for user input of block time, will change to obtain from the website
-BLOCK_TIME = 0
-while BLOCK_TIME <= 0:
-    BLOCK_TIME = int(input("Please enter number of minutes you would like the blocker to work: "))
+    shopping = [
+        "www.amazon.com", "amazon.com",
+        "www.sephora.com", "sephora.com",
+        "www.asos.com", "asos.com",
+        "www.bestbuy.com", "bestbuy.com",
+        "www.macys.com", "macys.com",
+        "www.ebay.com", "ebay.com",
+        "www.zappos.com", "zappos.com"
+        "www.costco.com", "costco.com",
+        "www.bjs.com", "bjs.com"
+    ]
 
-current_time = datetime.now()
-BLOCK_TIME_SEC = BLOCK_TIME*60
-blocker_end_time = current_time + timedelta(0,BLOCK_TIME_SEC)
-print(blocker_end_time)
-BLOCKER_STATUS = True
+    sites_to_block = []
+    if values[1]:
+        sites_to_block.extend(social_media)
+    if values[2]:
+        sites_to_block.extend(entertainment)
+    if values[3]:
+        sites_to_block.extend(shopping)
 
-# blocking functionality
-while BLOCKER_STATUS:
-    if datetime.now() < blocker_end_time:
-        with open(HOST_PATH, 'r+') as hostfile:
-            hosts = hostfile.read()
-            for site in  sites_to_block:
-                if site not in hosts:
-                    hostfile.write(REDIRECT+' '+site+'\n')
-        print("website blocker is activated ... ")
-        time.sleep(5)
-    else:
-        with open(HOST_PATH, 'r+') as hostfile:
-            hosts = hostfile.readlines()
-            hostfile.seek(0)
-            for host in hosts:
-                if not any(site in host for site in sites_to_block):
-                    hostfile.write(host)
-            hostfile.truncate()
-        print('Blocking time is over. Good job!')
-        BLOCKER_STATUS = False
+
+    Linux = "/etc/hosts"
+    Windows = r"C:\Windows\System32\drivers\etc\hosts"
+    redirect = "127.0.0.1"
+    host_path = ""
+
+    if platform.system() == "Linux" or platform.system() == "Darwin":
+        host_path = Linux
+    elif platform.system() == "Windows":
+        host_path = Windows
+
+    current_time = datetime.now()
+    block_time_sec = block_time * 60
+    blocker_end_time = current_time + timedelta(0, block_time_sec)
+    print(blocker_end_time)
+    blocker_status = True
+
+    while blocker_status:
+        if datetime.now() < blocker_end_time:
+            with open(host_path, 'r+') as hostfile:
+                hosts = hostfile.read()
+                for site in sites_to_block:
+                    if site not in hosts:
+                        hostfile.write(redirect + ' ' + site + '\n')
+            print("website blocker is activated ... ")
+            time.sleep(5)
+        else:
+            with open(host_path, 'r+') as hostfile:
+                hosts = hostfile.readlines()
+                hostfile.seek(0)
+                for host in hosts:
+                    if not any(site in host for site in sites_to_block):
+                        hostfile.write(host)
+                hostfile.truncate()
+            print('Blocking time is over. Good job!')
+            blocker_status = False

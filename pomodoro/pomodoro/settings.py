@@ -42,9 +42,10 @@ INSTALLED_APPS = [
     'crispy_forms',
     'timer.apps.TimerConfig',
     'register.apps.RegisterConfig',
+    'dashboard.apps.DashboardConfig',
 ]
 
-CSRF_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = False
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
