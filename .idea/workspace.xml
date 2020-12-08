@@ -196,11 +196,11 @@
       <method v="2" />
     </configuration>
     <list>
+      <item itemvalue="Python tests.pytest for tests.moduleTest.test_github_user" />
+      <item itemvalue="Python tests.pytest for tests.moduleTest.test_logout_page" />
       <item itemvalue="Python tests.pytest for tests.test_logout_page (2)" />
       <item itemvalue="Python tests.pytest for tests.test_logout_page (3)" />
       <item itemvalue="Python tests.pytest in tests.py" />
-      <item itemvalue="Python tests.pytest for tests.moduleTest.test_logout_page" />
-      <item itemvalue="Python tests.pytest for tests.moduleTest.test_github_user" />
     </list>
     <recent_temporary>
       <list>
