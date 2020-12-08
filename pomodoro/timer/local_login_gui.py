@@ -1,6 +1,6 @@
 import PySimpleGUI as sg
 
-sg.theme('DarkAmber')   # Add a touch of color
+sg.theme('DarkAmber')
 # All the stuff inside your window.
 layout = [  [sg.Text('Please login here')],
             [sg.Text("User id"), sg.InputText()],
@@ -9,7 +9,8 @@ layout = [  [sg.Text('Please login here')],
 
 # Create the Window
 window = sg.Window('Login', layout)
-# Event Loop to process "events" and get the "values" of the inputs
+
+# Event Loop to keep reading until login info matches
 while True:
     event, values = window.read()
     if event == sg.WIN_CLOSED or event == 'Cancel' or event == 'Login': # if user closes window or clicks cancel
