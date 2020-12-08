@@ -12,11 +12,9 @@ USER LOGIN
                 <form method="post" class="form-group">
                     {% csrf_token %}
                     {{ form|crispy }}
-                    <p>Want to use your google account? Click <a href="/google_oauth/redirect/">here</a></p>
+                    <p>Want to use your github account? Click <a href="https://github.com/login/oauth/authorize?client_id=fa1966d53fff052915c3&edirect_uri=http://127.0.0.1:8000/github/redirect">here</a></p>
                     <p>Don't have an account? Create one <a href="/register">here</a></p>
-<!--                    <button type="submit" class="btn btn-success">Login</button>-->
-                    {% csrf_token %}
-                    <button type="input"  id="start" value="start" >Login</button>
+                    <button type="input"  id="start" value="start" class="btn btn-success">Login</button>
                 </form>
             </div>
         </div>

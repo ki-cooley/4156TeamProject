@@ -48,8 +48,12 @@ def start_break(response):
         print("Hello from break()")
         alldata = response.POST
         reset_button_value = alldata.get("new_session", 0)
-        print("new_session : " + str(reset_button_value))
+        logout_button_value = alldata.get("logout", 0)
+        if str(logout_button_value) == "log_out":
+            print("logout_button_value : " + str(logout_button_value))
+            return redirect('/account/logout/')
         if str(reset_button_value) == "new_session":
+            print("new_session : " + str(reset_button_value))
             current_user = response.user
             pomodoro = p.Pomodoro()
             pomodoro.run_timer(current_user)
@@ -67,11 +71,16 @@ def home(response):
         if response.method == "POST":
             alldata = response.POST
             start_button_value = alldata.get("start_timer", 0)
+            logout_button_value = alldata.get("logout", 0)
+            if str(start_button_value) == "start":
+                print("start_button_value : " + str(start_button_value))
+                # call timer function
+                return redirect('/start/')
+            if str(logout_button_value) == "log_out":
+                print("logout_button_value : " + str(logout_button_value))
+                return redirect('/account/logout/')
             if(start_button_value == 'dashboard'):
                 return redirect('/dashboard/home')
-            print("start_button_value : " + str(start_button_value))
-            # call timer function
-            return redirect('/start/')
         return render(response, "timer/home.html", {})
     else:
         if response.method == "POST":

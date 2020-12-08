@@ -19,5 +19,10 @@
         <button name="start_timer"  type="input" id="dashboard-open" value="dashboard" >DASHBOARD</button>
     </form>
 
+    <form action="" method="post">
+        {% csrf_token %}
+        <button name="logout"  type="input" id="pomodoro-logout" value="log_out" >LOG OUT</button>
+    </form>
+
   <div id="progress"></div>
 </main>
