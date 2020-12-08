@@ -57,11 +57,13 @@ var x = setInterval(function() {
 
 </body>
     <form action="" method="post">
-    <button name="reset_timer"  type="input" id="pomodoro-reset" value="reset" >RESET</button>
+        {% csrf_token %}
+        <button name="reset_timer"  type="input" id="pomodoro-reset" value="reset" >RESET</button>
     </form>
 
     <form action="" method="post">
-    <button name="skip_to_break"  type="input" id="pomodoro-break" value="skip_to_break" >SKIP TO BREAK</button>
+        {% csrf_token %}
+        <button name="skip_to_break"  type="input" id="pomodoro-break" value="skip_to_break" >SKIP TO BREAK</button>
     </form>
   <div id="progress"></div>
 </main>

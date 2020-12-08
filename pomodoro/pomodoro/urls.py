@@ -26,5 +26,6 @@ urlpatterns = (
     path('', include("timer.urls")),
     path('account/', include("django.contrib.auth.urls")),
     path('logout_page/', vregister.logout_page, name="logout"),
-    path('google_oauth/redirect/', vregister.RedirectOauthView, name="google_login"),
+    path('login/github/', include('social_django.urls', namespace='social')),
+    path('github/redirect/', vregister.github_redirect, name='github_redirect'),
 )
