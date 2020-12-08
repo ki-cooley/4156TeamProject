@@ -12,6 +12,7 @@ before_script:
 script:
       - python pomodoro/manage.py test
 #       - cd pomodoro && py.test
+#       - cd pomodoro && python manage.py test
 deploy:
   provider: releases
   api_key:
