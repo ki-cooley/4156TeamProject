@@ -39,11 +39,18 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # 'timer',
     'rest_framework',
+    'rest_framework.authtoken',
     'crispy_forms',
     'timer.apps.TimerConfig',
     'register.apps.RegisterConfig',
     'dashboard.apps.DashboardConfig',
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+    ],
+}
 
 CSRF_COOKIE_SECURE = False
 MIDDLEWARE = [
