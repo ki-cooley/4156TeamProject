@@ -60,27 +60,22 @@ if os.geteuid() == 0:
 
     event, values = window.read()
     block_time = 0
-    while True:
-        if values[14]:
-            block_time = 30
-            break
-        if values[15]:
-            block_time = 60
-            break
-        if values[16]:
-            block_time = 120
-            break
-        if values[17]:
-            block_time = 240
-            break
-
+  
     window.close() 
     if event == "Submit":
+        if values[14]:
+            block_time = 30
+        if values[15]:
+            block_time = 60
+        if values[16]:
+            block_time = 120
+        if values[17]:
+            block_time = 240
         blocker(values, block_time)
-    print(values)
+ #  print(values)
 
 
-    if event != 'Cancel':
+    if event == 'Submit':
         sg.popup('Congratulation!',
                 'You stayed focused for ' + str(block_time) + ' minute(s)')
 
