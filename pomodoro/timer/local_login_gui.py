@@ -12,8 +12,13 @@ window = sg.Window('Login', layout)
 
 # Event Loop to keep reading until login info matches
 while True:
+    login = False
     event, values = window.read()
-    if event == sg.WIN_CLOSED or event == 'Cancel' or event == 'Login': # if user closes window or clicks cancel
+    if event == sg.WIN_CLOSED or event == 'Cancel': # if user clicks cancel or close, window will close, no successful login
         break
+    if event == 'Login': # if user clicks login and info matches, window will close, login successful
+        if values[1] and values[2]:
+            login = True
+            break
 
 window.close()
