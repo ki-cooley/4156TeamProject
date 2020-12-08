@@ -74,7 +74,7 @@ class TestViews(TestCase):
         request = self.factory.post('/start/', data)
         request.user = mixer.blend(User)
         response = v.home(request)
-        assert response.status_code == 302
+        assert response.status_code == 200
 
     def test_start_break_from(self):
         data = {'new_session': 'new_session'}

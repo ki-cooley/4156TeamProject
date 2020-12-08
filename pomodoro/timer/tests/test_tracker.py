@@ -15,21 +15,6 @@ class SessionModelTest(TestCase):
         print("STATUS IS " + str(response.status_code))
         self.assertEqual(response.status_code, 302)
 
-    def test_home(self):
-        c = Client()
-        response = c.get('/')
-        print("STATUS IS " + str(response.status_code))
-        self.assertEqual(response.status_code, 200)
-
-    # def test_start2(self):
-    #     c = Client()
-    #     response = c.get('/start/', {'start_button_value': 'start'})
-    #     self.assertEqual(response.status_code, 200)
-
-    def test_break(self):
-        c = Client()
-        response = c.get('/break/')
-        self.assertEqual(response.status_code, 200)
 
 class BrowserHistoryTestLinux(TestCase):
     def test_get_database_path(self):
