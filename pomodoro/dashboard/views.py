@@ -54,39 +54,26 @@ class TimerSessionActivityAPI(viewsets.ModelViewSet):
 	@action(methods=['get'], detail=True, url_path='week', url_name='weekly-session-activity')
 	def getWeeklyTimerSessionActivity(self, request, pk=None):
 		start_date = datetime.datetime.now() - datetime.timedelta(days=7)
-		lastWeek = TimerSessionactivity.objects.filter(start_time__range=(start_date, datetime.datetime.now()), user_id=pk)
+		lastWeek = TimerSessionactivity.objects.filter(visit_timestamp__range=(start_date, datetime.datetime.now()), user_id=pk)
 		serializer = TimerSessionactivitySerializer(lastWeek, many=True)
 		return Response(serializer.data)
 
 	@action(methods=['get'], detail=True, url_path='month', url_name='monthly-session-activity')
 	def getMonthlySessionActivity(self, request, pk=None):
 		start_date = datetime.datetime.now() - datetime.timedelta(days=30)
-		lastMonth = TimerSessionactivity.objects.filter(start_time__range=(start_date, datetime.datetime.now()), user_id=pk)
+		lastMonth = TimerSessionactivity.objects.filter(visit_timestamp__range=(start_date, datetime.datetime.now()), user_id=pk)
 		serializer = TimerSessionactivitySerializer(lastMonth, many=True)
 		return Response(serializer.data)
 
 class TimerBlockedSiteAPI(viewsets.ModelViewSet):
 	queryset = TimerBlockedsite.objects.all()
 
-	@action(methods=['get'], detail=True, url_path='', url_name='all-blocked-site')
+	@action(methods=['get'], detail=True, url_path='all', url_name='all-blocked-site')
 	def getUserTimerBlockedsite(self, request, pk=None):
-		allData = TimerBlockedsite.objects.all(user_id_id=pk)
+		allData = TimerBlockedsite.objects.filter(user_id=pk)
 		serializer = TimerBlockedsiteSerializer(allData, many=True)
 		return Response(serializer.data)
 
-	@action(methods=['get'], detail=True, url_path='week', url_name='weekly-blocked-site')
-	def getWeeklyTimerBlockedsite(self, request, pk=None):
-		start_date = datetime.datetime.now() - datetime.timedelta(days=7)
-		lastWeek = TimerBlockedsite.objects.filter(time__range=(start_date, datetime.datetime.now()), user_id=pk)
-		serializer = TimerBlockedsiteSerializer(lastWeek, many=True)
-		return Response(serializer.data)
-
-	@action(methods=['get'], detail=True, url_path='month', url_name='monthly-blocked-site')
-	def getMonthlyTimerBlockedsite(self, request, pk=None):
-		start_date = datetime.datetime.now() - datetime.timedelta(days=30)
-		lastMonth = TimerBlockedsite.objects.filter(time__range=(start_date, datetime.datetime.now()), user_id=pk)
-		serializer = TimerBlockedsiteSerializer(lastMonth, many=True)
-		return Response(serializer.data)
 
 @login_required
 def dashboardHome(request):
@@ -105,6 +92,10 @@ def sessionSummary(request):
 def detail(request, pk):
 	if request.user.is_authenticated:
 		sessionData = TimerSession.objects.filter(user_id=request.user.id, id=pk)
+		if len(sessionData) == 0 : 
+			return render(request, "detail.html", {"session_data" : None,
+			"activity_data": None, 
+			"blockedsites_data": None})
 		start, end = (sessionData[0].start_time, sessionData[0].start_time)
 		activityData = TimerSessionactivity.objects.filter(user_id=request.user.id, visit_timestamp__range= (start, end))
 		blockedsitesData = TimerBlockedsite.objects.filter(user_id=request.user.id)

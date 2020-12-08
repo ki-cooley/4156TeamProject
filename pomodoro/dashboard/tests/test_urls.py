@@ -7,5 +7,8 @@ class TestUrls:
         path = reverse('dashboard-home', kwargs={})
         assert resolve(path).view_name == 'dashboard-home'
     def test_url_summary(self):
-        path = reverse('dashboard-summary', kwargs={})
-        assert resolve(path).view_name == 'dashboard-summary'
+        path = reverse('summary', kwargs={})
+        assert resolve(path).view_name == 'summary'
+    def test_url_detail(self):
+    	path = reverse('detail', kwargs={'pk' : 1})
+    	assert resolve(path).view_name == 'detail'
