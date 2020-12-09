@@ -19,7 +19,7 @@ $ mysql -u root -p
 mysql> CREATE DATABASE pomodoro_db;
 mysql> quit
 ```
-5. Modify pomodoro/pomodoro/pomodoro/settings.py to replace 'fn37v9xn396jj' in DATABASES['default']['password'] with your local mysql password
+5. Modify pomodoro/pomodoro/settings.py to replace 'fn37v9xn396jj' in DATABASES['default']['password'] with your local mysql password
 6. Install virtualenv and create and activate a virtual environment:
 ```
 $ pip install virtualenv
