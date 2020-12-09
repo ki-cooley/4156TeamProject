@@ -100,7 +100,7 @@ def blocker(values, block_time):
                     sites_to_block.remove(val[1] + ".com")
                 if val[1] == "com" and values[i] in sites_to_block:
                     sites_to_block.remove(values[i])
-                    sites_to_block.remove("www."+val)
+                    sites_to_block.remove("www."+values[i])
             if len(val) == 3:
                 if val[0] == "www" and val[2] == "com" and values[i] in sites_to_block:
                     sites_to_block.remove(values[i])
