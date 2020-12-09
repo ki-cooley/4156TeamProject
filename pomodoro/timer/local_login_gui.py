@@ -3,6 +3,12 @@ from . import api_local
 from . import blocker_gui
 
 def login_gui():
+    
+    """
+    creates a local login window
+    :return: no return value
+    """
+    
     sg.theme('DarkAmber')   # Add a touch of color
     # All the stuff inside your window.
     layout = [  [sg.Text('Please login here')],
