@@ -5,6 +5,11 @@ import sys
 import os
 
 def blocker_gui(id):
+    
+    """   
+    :param id: get user id from local login window
+    :return: no return value
+    """
 
     if os.geteuid() == 0:
         sg.ChangeLookAndFeel('GreenTan')
