@@ -33,3 +33,5 @@ def login_gui():
             window.close()
             b.blocker_gui(values[1])
 
+def main():
+    login_gui()
