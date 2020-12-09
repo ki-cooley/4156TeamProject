@@ -16,6 +16,7 @@ class moduleTest(TestCase):
         resp = cls.session.post(url, json=data_post)
         assert resp.status_code == 200
 
+
     @classmethod
     def test_logout_page(cls):
         url = "http://127.0.0.1:8000/logout_page/"
@@ -33,12 +34,6 @@ class moduleTest(TestCase):
         access_token = "AFjx1pKHtNyjtDyPtWFWLD7bKG88jp2DFI7fuJvKIMTyUdC4fyGFJARmKtujSDn2"
         result = github_user(access_token)
         assert result == 400
-
-    # @classmethod
-    # def test_github_redirect(cls):
-    #     url = "https://github.com/login/oauth/authorize?client_id=fa1966d53fff052915c3&edirect_uri=http://127.0.0.1:8000/github/redirect"
-    #     result = github_redirect(render(url))
-    #     assert result.content == 'failed to get the parameter of CODE, please retry!'
 
 
 if __name__ == "__main__":
