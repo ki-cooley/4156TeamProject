@@ -100,6 +100,7 @@ def start_break(response):
     else:
         return render(response, "timer/break.html", {})
 
+@login_required
 def home(response):
     """start endpoint."""
     if response.user.is_authenticated:
