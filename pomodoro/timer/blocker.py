@@ -72,7 +72,7 @@ def blocker(values, block_time):
     for i in range(4,9):
         if values[i] is not None:
             val = values[i].split(".")
-            if len(val) == 1:
+            if len(val) == 1 and values[i]+".com" not in sites_to_block:
                 sites_to_block.append("www." + values[i] + ".com")
                 sites_to_block.append(values[i]+".com")
             if len(val) == 2:
