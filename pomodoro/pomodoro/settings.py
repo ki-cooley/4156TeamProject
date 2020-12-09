@@ -37,12 +37,19 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # 'timer',
     'rest_framework',
+    'rest_framework.authtoken',
     'crispy_forms',
     'timer.apps.TimerConfig',
     'register.apps.RegisterConfig',
     'dashboard.apps.DashboardConfig',
     'social_django',
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+    ],
+}
 
 CSRF_COOKIE_SECURE = False
 MIDDLEWARE = [
@@ -100,7 +107,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'pomodoro_db',
         'USER': 'root',
-        'PASSWORD': 'Wangyifei970504',
+        'PASSWORD': 'fn37v9xn396jj',
     }
 }
 

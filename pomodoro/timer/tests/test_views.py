@@ -26,11 +26,18 @@ class TestViews(TestCase):
         response = v.home(request)
         assert response.status_code == 200
 
-    def test_start_nonauthenticated(self):
+    def test_home_nonauthenticated(self):
+        path = reverse('home', kwargs={})
+        request = self.factory.get(path)
+        request.user = AnonymousUser()
+        response = v.home(request)
+        assert response.status_code == 302
+
+    def test_start_authenticated(self):
         path = reverse('start', kwargs={})
         request = self.factory.get(path)
 
-        request.user = AnonymousUser()
+        request.user = mixer.blend(User)
         response = v.start(request)
         assert response.status_code == 200
         # assert 'accounts/login' in response.url
@@ -40,21 +47,21 @@ class TestViews(TestCase):
         request = self.factory.get(path)
         request.user = AnonymousUser()
         response = v.home(request)
-        assert response.status_code == 200
+        assert response.status_code == 302
 
-    def test_break_nonauthenticated(self):
-          path = reverse('break', kwargs={})
-          request = self.factory.get(path)
-          request.user = AnonymousUser()
-          response = v.start_break(request)
-          assert response.status_code == 200
+    # def test_break_nonauthenticated(self):
+    #       path = reverse('break', kwargs={})
+    #       request = self.factory.get(path)
+    #       request.user = AnonymousUser()
+    #       response = v.start_break(request)
+    #       assert response.status_code == 200
 
     def test_break_nonauthenticated(self):
         path = reverse('break', kwargs={})
         request = self.factory.get(path)
         request.user = AnonymousUser()
         response = v.start_break(request)
-        assert response.status_code == 200
+        assert response.status_code == 302
 
     def test_start_button(self):
         c = Client()
@@ -67,7 +74,7 @@ class TestViews(TestCase):
         request = self.factory.post('/start/', data)
         request.user = mixer.blend(User)
         response = v.home(request)
-        assert response.status_code == 302
+        assert response.status_code == 200
 
     def test_start_break_from(self):
         data = {'new_session': 'new_session'}
@@ -76,13 +83,14 @@ class TestViews(TestCase):
         response = v.start_break(request)
         assert response.status_code == 302
 
-
     def test_start_post(self):
         data = {'new_session': 'new_session'}
         request = self.factory.post('/break/', data)
         request.user = mixer.blend(User)
         response = v.start(request)
-        # assert response.status_code == 302
+        print("this is the response")
+        print(request)
+        # assert response.status_code == 200
 
     def test_start_post_reset(self):
         data = {'reset_timer': 'reset'}
@@ -95,6 +103,7 @@ class TestViews(TestCase):
         request = self.factory.post('/break/', data)
         request.user = mixer.blend(User)
         response = v.start(request)
+
 
     def test_start_post_else(self):
         data = {'skip_to_break': 'something'}
