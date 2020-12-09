@@ -76,14 +76,14 @@ def blocker(values, block_time):
                 sites_to_block.append("www." + values[i] + ".com")
                 sites_to_block.append(values[i]+".com")
             if len(val) == 2:
-                if val[0] == "www" and val[1] != "com":
+                if val[0] == "www" and val[1] != "com" and values[i]+".com" not in sites_to_block:
                     sites_to_block.append(values[i] + ".com")
                     sites_to_block.append(val[1]+".com")
-                if val[1] == "com" and val[0] != "www":
+                if val[1] == "com" and val[0] != "www" and "www."+values[i] not in sites_to_block:
                     sites_to_block.append("www."+values[i])
                     sites_to_block.append(values[i])
             if len(val) == 3:
-                if val[0] == "www" and val[2] == "com":
+                if val[0] == "www" and val[2] == "com" and values[i] not in sites_to_block:
                     sites_to_block.append(values[i])
                     sites_to_block.append(val[1]+"."+val[2])
 
@@ -96,13 +96,13 @@ def blocker(values, block_time):
                     sites_to_block.remove(values[i] + ".com")
             if len(val) == 2:
                 if val[0] == "www" and val[1]+".com" in sites_to_block:
-                    sites_to_block.remove(val+".com")
+                    sites_to_block.remove(values[i]+".com")
                     sites_to_block.remove(val[1] + ".com")
-                if val[1] == "com" and val in sites_to_block:
-                    sites_to_block.remove(val)
+                if val[1] == "com" and values[i] in sites_to_block:
+                    sites_to_block.remove(values[i])
                     sites_to_block.remove("www."+val)
             if len(val) == 3:
-                if val[0] == "www" and val[2] == "com":
+                if val[0] == "www" and val[2] == "com" and values[i] in sites_to_block:
                     sites_to_block.remove(values[i])
                     sites_to_block.remove(val[1] + "." + val[2])
 
