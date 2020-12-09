@@ -1,4 +1,6 @@
 import PySimpleGUI as sg
+from . import api_local
+from . import blocker_gui
 
 def login_gui():
     sg.theme('DarkAmber')   # Add a touch of color
@@ -23,4 +25,5 @@ def login_gui():
             login_gui()
         else:
             window.close()
+            b.blocker_gui(values[1])
 
