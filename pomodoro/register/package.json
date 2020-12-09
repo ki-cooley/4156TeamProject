@@ -1,0 +1,7 @@
+  "jest": {
+    "moduleFileExtensions": ["py"],
+    "runner": "jest-pytest",
+    "testPathIgnorePatterns": ["snap_.*\\.py"],
+    "testMatch": ["**/?(*_)test.py"]
+  }
+}
