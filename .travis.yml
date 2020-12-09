@@ -15,12 +15,28 @@ script:
       - python pomodoro/manage.py test
 #       - cd pomodoro && py.test
 #       - cd pomodoro && python manage.py test
-      - cd pomodoro && py.test --ignore=timer/tests/test_tracker.py
+      - cd pomodoro && py.test --ignore=timer/tests/test_tracker.py --ignore=timer/tests/test_api.py
+# deploy:
+#   provider: releases
+#   api_key:
+#         secure: ${GH_TOKEN}
+#   file: "travis_report"
+#   skip_cleanup: true
+#   on:
+#     tags: true
 deploy:
-  provider: releases
-  api_key:
-        secure: ${GH_TOKEN}
-  file: "travis_report"
-  skip_cleanup: true
+  # Use Github pages deploy process
+  provider: pages
+  # Keep builded pages
+  skip-cleanup: true
+  # Directory where your generated files are located
+  local_dir: public
+  # Github security/auth token
+  github-token: ${GH_TOKEN}
+  # Incremental commit to keep old build/files from previous deployments
+  keep-history: true
+  # Git branch on which it should deploy (master, gh-pages, foo...)
+  target_branch: gh-pages
   on:
-    tags: true
+    # Which branch on commit/push will trigger deployment
+    branch: master

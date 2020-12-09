@@ -7,29 +7,13 @@ from unittest import TestCase
 from django.contrib.auth.models import AnonymousUser, User
 from django.test import TestCase, RequestFactory, Client
 
-class SessionModelTest(TestCase):
+# class SessionModelTest(TestCase):
 
-    def test_start_button(self):
-        c = Client()
-        response = c.post('/', {'start_button_value': 'start'})
-        print("STATUS IS " + str(response.status_code))
-        self.assertEqual(response.status_code, 302)
-
-    def test_home(self):
-        c = Client()
-        response = c.get('/')
-        print("STATUS IS " + str(response.status_code))
-        self.assertEqual(response.status_code, 200)
-
-    # def test_start2(self):
+    # def test_start_button(self):
     #     c = Client()
-    #     response = c.get('/start/', {'start_button_value': 'start'})
-    #     self.assertEqual(response.status_code, 200)
-
-    def test_break(self):
-        c = Client()
-        response = c.get('/break/')
-        self.assertEqual(response.status_code, 200)
+    #     response = c.post('/', {'start_button_value': 'start'})
+    #     print("STATUS IS " + str(response.status_code))
+    #     self.assertEqual(response.status_code, 302)
 
 class BrowserHistoryTestLinux(TestCase):
     def test_get_database_path(self):
@@ -39,8 +23,9 @@ class BrowserHistoryTestLinux(TestCase):
             self.assertEqual(linux_path, true_path)
 
     def test_get_history(self):
-        history = browserhistory.get_browserhistory()['chrome']
-        self.assertTrue(history)  #is false when i run it
+        if platform == "linux" or platform == "linux2":
+            history = browserhistory.get_browserhistory()['chrome']
+            self.assertTrue(history)  #is false when i run it
 
 class BrowserHistoryTestOSX(TestCase):
     def test_get_database_path(self):
@@ -50,8 +35,9 @@ class BrowserHistoryTestOSX(TestCase):
             self.assertEqual(osx_path, true_path)
 
     def test_get_history(self):
-        history = browserhistory.get_browserhistory()['chrome']
-        self.assertTrue(history)  #is false when i run it
+        if platform == "darwin":
+            history = browserhistory.get_browserhistory()['chrome']
+            self.assertTrue(history)  #is false when i run it
 
 class BrowserHistoryTestWindows(TestCase):
     def test_get_database_path(self):
@@ -61,5 +47,6 @@ class BrowserHistoryTestWindows(TestCase):
             self.assertEqual(win_path, true_path)
 
     def test_get_history(self):
-        history = browserhistory.get_browserhistory()['chrome']
-        self.assertTrue(history)  #is false when i run it
+        if platform == "win32":
+            history = browserhistory.get_browserhistory()['chrome']
+            self.assertTrue(history)  #is false when i run it
