@@ -13,6 +13,7 @@ import os
 def blocker(values, block_time):
 
     block_list_path = os.getcwd()
+    clean_block_list = []
 
     Linux = "/etc/hosts"
     Windows = r"C:\Windows\System32\drivers\etc\hosts"
@@ -36,6 +37,7 @@ def blocker(values, block_time):
                 if list[i] == "\n":
                     break
                 list[i] = list[i][:list[i].rfind("\n")]
+                clean_block_list.append(list[i])
                 if list[i] != "social_media:":
                     social_media.append("www."+list[i]+".com")
                     social_media.append(list[i]+".com")
@@ -50,6 +52,7 @@ def blocker(values, block_time):
                 if list[i] == "\n":
                     break
                 list[i] = list[i][:list[i].rfind("\n")]
+                clean_block_list.append(list[i])
                 if list[i] != "entertainment:":
                     entertainment.append("www." + list[i] + ".com")
                     entertainment.append(list[i] + ".com")
@@ -63,6 +66,7 @@ def blocker(values, block_time):
                 if list[i] == "\n":
                     break
                 list[i] = list[i][:list[i].rfind("\n")]
+                clean_block_list.append(list[i])
                 if list[i] != "shopping:":
                     shopping.append("www." + list[i] + ".com")
                     shopping.append(list[i] + ".com")
@@ -75,17 +79,22 @@ def blocker(values, block_time):
             if len(val) == 1 and values[i]+".com" not in sites_to_block:
                 sites_to_block.append("www." + values[i] + ".com")
                 sites_to_block.append(values[i]+".com")
+                clean_block_list.append(values[i])
             if len(val) == 2:
                 if val[0] == "www" and val[1] != "com" and values[i]+".com" not in sites_to_block:
                     sites_to_block.append(values[i] + ".com")
                     sites_to_block.append(val[1]+".com")
+                    clean_block_list.append(val[1])
                 if val[1] == "com" and val[0] != "www" and "www."+values[i] not in sites_to_block:
                     sites_to_block.append("www."+values[i])
                     sites_to_block.append(values[i])
+                    clean_block_list.append(val[0])
             if len(val) == 3:
                 if val[0] == "www" and val[2] == "com" and values[i] not in sites_to_block:
                     sites_to_block.append(values[i])
                     sites_to_block.append(val[1]+"."+val[2])
+                    clean_block_list.append(val[1])
+
 
     for i in range(9, 14):
         if values[i] is not None:
@@ -94,19 +103,23 @@ def blocker(values, block_time):
                 if "www." + values[i] + ".com" in sites_to_block:
                     sites_to_block.remove("www." + values[i] + ".com")
                     sites_to_block.remove(values[i] + ".com")
+                    clean_block_list.remove(values[i])
             if len(val) == 2:
                 if val[0] == "www" and val[1]+".com" in sites_to_block:
                     sites_to_block.remove(values[i]+".com")
                     sites_to_block.remove(val[1] + ".com")
+                    clean_block_list.remove(val[1])
                 if val[1] == "com" and values[i] in sites_to_block:
                     sites_to_block.remove(values[i])
                     sites_to_block.remove("www."+values[i])
+                    clean_block_list.remove([val[0]])
             if len(val) == 3:
                 if val[0] == "www" and val[2] == "com" and values[i] in sites_to_block:
                     sites_to_block.remove(values[i])
                     sites_to_block.remove(val[1] + "." + val[2])
+                    clean_block_list.remove(val[1])
 
-
+    print(sites_to_block)
     current_time = datetime.now()
     block_time_sec = block_time * 60
     blocker_end_time = current_time + timedelta(0, block_time_sec)
