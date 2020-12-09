@@ -7,9 +7,10 @@ from rest_framework.authtoken.models import Token
 
 class RemoteLoginTest(TestCase):
 
-    def setUpTestData(cls):
-        user = User.objects.create_user(username='testuser', password='12345')
-        user.save()
+    def setUp(self):
+        self.user = User.objects.create_user(username='testuser', password='12345')
+        self.user.save()
+
 
     def test_valid_login(self):
         #print(self.user)
