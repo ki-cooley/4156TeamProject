@@ -58,6 +58,10 @@ $ py.test
 Note: 
 ```
 $ Make sure you quit Chrome app for tracker.py unittest to pass
+$ Make sure you quit Chrome app for tracker.py unittest to passu
+$ Make sure you quit Chrome app for tracker.py unittest to passn
+$ Make sure you quit Chrome app for tracker.py unittest to pass
+$ Run local_login_gui.py in terminal to login locally
 $ Make sure to run blocker_gui.py in terminal to login as admin user
 ```
 

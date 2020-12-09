@@ -15,7 +15,7 @@ script:
       - python pomodoro/manage.py test
 #       - cd pomodoro && py.test
 #       - cd pomodoro && python manage.py test
-      - cd pomodoro && py.test --ignore=timer/tests/test_api.py
+      - cd pomodoro && py.test --ignore=timer/tests/test_tracker.py --ignore=timer/tests/test_api.py
 # deploy:
 #   provider: releases
 #   api_key:
