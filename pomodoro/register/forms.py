@@ -2,8 +2,9 @@ from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
 from django import forms
 from django.contrib.auth.models import User
+from django.views.decorators.csrf import csrf_exempt
 
-
+@csrf_exempt
 class RegisterForm(UserCreationForm):
     email = forms.EmailField(required=True)
     firstname = forms.CharField(required=True)
@@ -14,6 +15,7 @@ class RegisterForm(UserCreationForm):
         fields = ["username", "firstname", "lastname", "email", "password1", "password2"]
 
 
+@csrf_exempt
 class GithubRegisterForm(UserCreationForm):
     social_auth = forms.CharField(required=True)
     email = forms.EmailField(required=True)

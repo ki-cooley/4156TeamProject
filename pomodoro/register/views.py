@@ -57,7 +57,7 @@ def github_token(code):
     token_url = 'https://github.com/login/oauth/access_token?' \
                 'client_id={}&client_secret={}&code={}'
     token_url = token_url.format(SOCIAL_AUTH_GITHUB_KEY, SOCIAL_AUTH_GITHUB_SECRET,
-                                 code)  # 这里的client_id、client_secret修改为自己的真实ID与Secret
+                                 code)
     header = {
         'accept': 'application/json'
     }
@@ -85,9 +85,11 @@ def github_redirect(request):
                 name = user_info.get('name', None)
                 email = user_info.get('email', None)
                 social_auth = user_info.get('id', None)
-                if not User.objects.all().filter(username=name).exists():
-                    User.objects.create_user(username=name, password='', email=email)
-                user_obj = auth.authenticate(username=name, password='')
+                if not User.objects.all().filter(username=user_name, first_name=name.split(' ', 1)[0],
+                                                 last_name=name.split(' ', 1)[1]).exists():
+                    User.objects.create_user(username=user_name, password='', email=email,
+                                             first_name=name.split(' ', 1)[0], last_name=name.split(' ', 1)[1])
+                user_obj = auth.authenticate(request, username=user_name, password='')
                 auth.login(request, user_obj)
                 return redirect('/')
         return HttpResponse('failed to get the parameter of token, please retry!')
