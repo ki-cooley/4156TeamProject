@@ -1,0 +1,16 @@
+Metadata-Version: 1.1
+Name: pytest-jest
+Version: 0.3.0
+Summary: A custom jest-pytest oriented Pytest reporter
+Home-page: https://github.com/jondot/pytest-jest
+Author: numirias, jondot
+Author-email: jondotan@gmail.com
+License: MIT
+Description: UNKNOWN
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Framework :: Pytest
