@@ -12,6 +12,7 @@ sys.path.append('../')
 #from timer import models as m
 #from django.contrib.auth.models import User
 import api_local as api
+import tracker
 
 def blocker(values, block_time, token):
 
@@ -39,6 +40,8 @@ def blocker(values, block_time, token):
         block_list_path = block_list_path+r"\block_list.txt"
 
     sites_to_block = api.get_blocked_sites(token)
+    if sites_to_block == None:
+        sites_to_block = []
     # category 1
     if values[1]:
         social_media = []
@@ -122,6 +125,7 @@ def blocker(values, block_time, token):
                     sites_to_block.remove(val[1] + "." + val[2])
 
     api.send_blocked_sites(token, sites_to_block)
+    tracker.track(token)
 
     current_time = datetime.now()
     block_time_sec = block_time * 60
