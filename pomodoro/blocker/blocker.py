@@ -7,7 +7,9 @@ import time
 from datetime import datetime, timedelta
 import platform
 import os
-from pomodoro.timer import model
+import sys
+sys.path.append('../')
+from timer import models as m
 from django.contrib.auth.models import User
 
 def blocker(values, block_time, id):

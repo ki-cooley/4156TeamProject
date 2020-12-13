@@ -1,4 +1,6 @@
 import PySimpleGUI as sg
+import sys
+sys.path.append('../')
 from timer.api_local import login
 import blocker_gui
 
@@ -25,7 +27,7 @@ def login_gui():
         window.close()
 
     if event == 'Login':
-        token = api_local.login(values[1], values[2])
+        token = login(values[1], values[2])
         if token is None:
             sg.popup("Login unsuccessful, please enter correct user id and password")
             login_gui()
