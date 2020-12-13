@@ -1,10 +1,10 @@
 #!/usr/bin/env Python3
 import PySimpleGUI as sg
-from . import blocker as b
+import blocker
 import sys
 import os
 
-def blocker_gui(id):
+def blocker_gui(token):
     
     """   
     :param id: get user id from local login window
@@ -78,7 +78,7 @@ def blocker_gui(id):
                 block_time = 120
             if values[17]:
                 block_time = 240
-            b.blocker(values, 2, id)
+            blocker.blocker(values, block_time, token)
 
         if event == 'Submit':
             sg.popup('Congratulation!',
