@@ -42,6 +42,7 @@ $ pip install google-apis-oauth-django google-api-python-client  #for OAuth func
 ```
 8. Run the server:
 ```
+$ cd pomodoro
 $ python manage.py runserver
 ```
 9. Navigate to http://127.0.0.1:8000 in your browser
