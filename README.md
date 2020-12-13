@@ -50,7 +50,7 @@ $ python manage.py runserver
 10. To use blocker/tracker:
 ```
 $$ for TESTING purpose:
-modify blocker_gui.py at line 81, change blocker_time to a shorter time (in minute)
+modify blocker_gui.py at line 81, change block_time to a shorter time (in minute)
 
 $ open a new terminal window
 
