@@ -7,8 +7,8 @@ import time
 from datetime import datetime, timedelta
 import platform
 import os
+from pomodoro.timer import model
 from django.contrib.auth.models import User
-from . import models as m
 
 def blocker(values, block_time, id):
 
@@ -148,7 +148,6 @@ def blocker(values, block_time, id):
 
 def insert_to_bd(user, sites_to_block):
     """
-
     :param user: user id
     :param sites_to_block: passed in from blocker()
     :return: no return value
@@ -158,5 +157,6 @@ def insert_to_bd(user, sites_to_block):
     sites.user_id = user
     sites.site_url = sites_to_block
     sites.save()
+
 
 
