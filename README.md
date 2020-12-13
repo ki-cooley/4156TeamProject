@@ -47,12 +47,22 @@ $ python manage.py runserver
 ```
 9. Navigate to http://127.0.0.1:8000 in your browser
 
-10. To run front-end tests: 
+10. To use blocker/tracker:
+```
+$ open a new terminal window
+
+For mac/linux users:
+$ sudo python local_login_gui.py
+
+For windows users:
+$ do a RUN AS ADMINISTRATOR before running the script
+```
+11. To run front-end tests: 
 ```
 $ cd pomodoro/timer
 $ jest
 ```
-11. To run back-end tests: 
+12. To run back-end tests: 
 ```
 $ py.test
 ``` 

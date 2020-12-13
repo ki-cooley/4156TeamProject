@@ -28,8 +28,12 @@ def send_blocked_sites(token, blocked_sites):
     headers = {'Authorization': 'Token ' + token}
     old_block_list = set(get_blocked_sites(token))
     new_block_list = set(blocked_sites) - old_block_list
+
     data = [{'site_url': 'https://' + site} for site in new_block_list]
-    r = requests.post('http://127.0.0.1:8000/block/', headers=headers, data=data)
-    if r.status_code == 200:
-        return 0
-    return -1
+  #  r = requests.post('http://127.0.0.1:8000/api/block/', headers=headers, data=data)
+
+    for d in data:
+        r = requests.post('http://127.0.0.1:8000/api/block/', headers=headers, data=d)
+        if r.status_code == 200:
+            return 0
+        return -1
