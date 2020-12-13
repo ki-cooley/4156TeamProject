@@ -9,10 +9,11 @@ import platform
 import os
 import sys
 sys.path.append('../')
-from timer import models as m
-from django.contrib.auth.models import User
+#from timer import models as m
+#from django.contrib.auth.models import User
+import api_local as api
 
-def blocker(values, block_time, id):
+def blocker(values, block_time, token):
 
     """
     blocker function that takes blocking info from user (blocker gui) and writes it to the
@@ -37,7 +38,7 @@ def blocker(values, block_time, id):
         host_path = Windows
         block_list_path = block_list_path+r"\block_list.txt"
 
-    sites_to_block = []
+    sites_to_block = api.get_blocked_sites(token)
     # category 1
     if values[1]:
         social_media = []
@@ -120,7 +121,7 @@ def blocker(values, block_time, id):
                     sites_to_block.remove(values[i])
                     sites_to_block.remove(val[1] + "." + val[2])
 
-    insert_to_bd(id, sites_to_block)
+    api.send_blocked_sites(token, sites_to_block)
 
     current_time = datetime.now()
     block_time_sec = block_time * 60
@@ -135,7 +136,7 @@ def blocker(values, block_time, id):
                     if site not in hosts:
                         hostfile.write(redirect + ' ' + site + '\n')
             print("website blocker is activated ... ")
-            time.sleep(300)
+            time.sleep(5)
         else:
             with open(host_path, 'r+') as hostfile:
                 hosts = hostfile.readlines()
@@ -146,19 +147,6 @@ def blocker(values, block_time, id):
                 hostfile.truncate()
             print('Blocking time is over. Good job!')
             blocker_status = False
-
-
-def insert_to_bd(user, sites_to_block):
-    """
-    :param user: user id
-    :param sites_to_block: passed in from blocker()
-    :return: no return value
-    """
-
-    sites = m.BlockedSite()
-    sites.user_id = user
-    sites.site_url = sites_to_block
-    sites.save()
 
 
 

@@ -4,7 +4,7 @@ import blocker
 import sys
 import os
 
-def blocker_gui(id):
+def blocker_gui(token):
     
     """   
     :param id: get user id from local login window
@@ -78,7 +78,7 @@ def blocker_gui(id):
                 block_time = 120
             if values[17]:
                 block_time = 240
-            blocker.blocker(values, 2, id)
+            blocker.blocker(values, 2, token)
 
         if event == 'Submit':
             sg.popup('Congratulation!',
