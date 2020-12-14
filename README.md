@@ -71,6 +71,10 @@ $ py.test
 ``` 
 Note: 
 ```
+$ Make sure you have put your full name in your github account profile. 
+$ About how to add your full name into the personal profile, please go to your 
+$ Github home page, click the upper right button, select "Settings", go to "Profile"
+$ on the side bar, then you will see a field called "Name". Fill that out!
 $ Make sure to close the chrome browser before running the local application 
 $ Run local_login_gui.py in terminal to login locally
 $ Make sure to run blocker_gui.py in terminal to login as admin user
