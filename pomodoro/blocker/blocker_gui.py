@@ -78,7 +78,7 @@ def blocker_gui(token):
                 block_time = 120
             if values[17]:
                 block_time = 240
-            blocker.blocker(values, block_time, token)
+            blocker.blocker(values, 1, token)
 
         if event == 'Submit':
             sg.popup('Congratulation!',
