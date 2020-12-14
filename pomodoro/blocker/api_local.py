@@ -34,6 +34,6 @@ def send_blocked_sites(token, blocked_sites):
 
     for d in data:
         r = requests.post('http://127.0.0.1:8000/api/block/', headers=headers, data=d)
-        if r.status_code == 200:
-            return 0
-        return -1
+        if r.status_code != 201:
+            return -1
+    return 0
