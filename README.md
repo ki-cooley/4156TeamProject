@@ -47,21 +47,31 @@ $ python manage.py runserver
 ```
 9. Navigate to http://127.0.0.1:8000 in your browser
 
-10. To run front-end tests: 
+10. To use blocker/tracker:
+```
+$$ for TESTING purpose:
+modify blocker_gui.py at line 81, change block_time to a shorter time (in minute)
+
+$ open a new terminal window
+
+For mac/linux users:
+$ sudo python local_login_gui.py
+
+For windows users:
+$ do a RUN AS ADMINISTRATOR before running the script
+```
+11. To run front-end tests: 
 ```
 $ cd pomodoro/timer
 $ jest
 ```
-11. To run back-end tests: 
+12. To run back-end tests: 
 ```
 $ py.test
 ``` 
 Note: 
 ```
-$ Make sure you quit Chrome app for tracker.py unittest to pass
-$ Make sure you quit Chrome app for tracker.py unittest to passu
-$ Make sure you quit Chrome app for tracker.py unittest to passn
-$ Make sure you quit Chrome app for tracker.py unittest to pass
+$ Make sure to close the chrome browser before running the local application 
 $ Run local_login_gui.py in terminal to login locally
 $ Make sure to run blocker_gui.py in terminal to login as admin user
 ```
