@@ -63,6 +63,7 @@ pomodoro = p.Pomodoro()
 
 @login_required
 def start(response):
+    current_user = response.user
     """start view."""
     if response.method == "POST":
         alldata = response.POST
@@ -70,14 +71,12 @@ def start(response):
         skip_value = alldata.get("skip_to_break", 0)
 
         if str(reset_button_value) == "reset":
+            pomodoro.run_timer(current_user)
             return redirect('/start/')
         if str(skip_value) == "skip_to_break":
-            current_user = response.user
-            # pomodoro.run_timer(current_user)
             pomodoro.store(current_user)
             return redirect('/break/')
     else:
-        current_user = response.user
         pomodoro.run_timer(current_user)
         return render(response, "timer/start.html", {})
 
@@ -94,9 +93,6 @@ def start_break(response):
             return redirect('/account/logout/')
         if str(reset_button_value) == "new_session":
             print("new_session : " + str(reset_button_value))
-            current_user = response.user
-            # pomodoro = p.Pomodoro()
-            pomodoro.run_timer(current_user)
             return redirect('/start/')
         if str(reset_button_value) == "dashboard":
             return redirect('/dashboard/home')
