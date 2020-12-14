@@ -59,6 +59,8 @@ class SessionViewSet(viewsets.ModelViewSet):
         user_id = self.request.user.id
         return Session.objects.filter(user_id=user_id)
 
+pomodoro = p.Pomodoro()
+
 @login_required
 def start(response):
     """start view."""
@@ -71,12 +73,11 @@ def start(response):
             return redirect('/start/')
         if str(skip_value) == "skip_to_break":
             current_user = response.user
-            pomodoro = p.Pomodoro()
-            pomodoro.run_timer(current_user)
+            # pomodoro.run_timer(current_user)
+            pomodoro.store(current_user)
             return redirect('/break/')
     else:
         current_user = response.user
-        pomodoro = p.Pomodoro()
         pomodoro.run_timer(current_user)
         return render(response, "timer/start.html", {})
 
@@ -94,9 +95,12 @@ def start_break(response):
         if str(reset_button_value) == "new_session":
             print("new_session : " + str(reset_button_value))
             current_user = response.user
-            pomodoro = p.Pomodoro()
+            # pomodoro = p.Pomodoro()
             pomodoro.run_timer(current_user)
             return redirect('/start/')
+        if str(reset_button_value) == "dashboard":
+            return redirect('/dashboard/home')
+
     else:
         return render(response, "timer/break.html", {})
 

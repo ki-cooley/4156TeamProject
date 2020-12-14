@@ -63,7 +63,10 @@ var x = setInterval(function() {
         {% csrf_token %}
         <button name="new_session"  type="input" id="pomodoro-reset" value="new_session" >NEW SESSION</button>
     </form>
-
+    <form action="" method="post">
+        {% csrf_token %}
+        <button name="new_session"  type="input" id="pomodoro-reset" value="dashboard" >DASHBOARD</button>
+    </form>
     <form action="" method="post">
         {% csrf_token %}
         <button name="logout"  type="input" id="pomodoro-logout" value="log_out" >LOG OUT</button>
