@@ -85,10 +85,18 @@ def github_redirect(request):
                 name = user_info.get('name', None)
                 email = user_info.get('email', None)
                 social_auth = user_info.get('id', None)
-                if not User.objects.all().filter(username=user_name, first_name=name.split(' ', 1)[0],
-                                                 last_name=name.split(' ', 1)[1]).exists():
+                if name is None:
+                    name = "NotAvailable NotAvailable"
+                if not User.objects.all().filter(username=user_name).exists():
                     User.objects.create_user(username=user_name, password='', email=email,
                                              first_name=name.split(' ', 1)[0], last_name=name.split(' ', 1)[1])
+                else:
+                    user = User.objects.get(username=user_name)
+                    if user.email != email or user.first_name != name.split(' ', 1)[0] or user.last_name != name.split(' ', 1)[1]:
+                        user.first_name=name.split(' ', 1)[0]
+                        user.last_name=name.split(' ', 1)[1]
+                        user.email=email
+                        user.save()
                 user_obj = auth.authenticate(request, username=user_name, password='')
                 auth.login(request, user_obj)
                 return redirect('/')
