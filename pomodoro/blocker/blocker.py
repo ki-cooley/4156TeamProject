@@ -134,12 +134,13 @@ def blocker(values, block_time, token):
 
     api.send_blocked_sites(token, sites_to_block)
     tracker.track(token)
-
+    
     current_time = datetime.now()
     block_time_sec = block_time * 60
     blocker_end_time = current_time + timedelta(0, block_time_sec)
     blocker_status = True
 
+    # open hosts file, read the sites to block, and write them in hosts file during block period
     while blocker_status:
         if datetime.now() < blocker_end_time:
             with open(host_path, 'r+') as hostfile:
@@ -150,6 +151,7 @@ def blocker(values, block_time, token):
             print("website blocker is activated ... ")
             time.sleep(5)
         else:
+            # after block period, open hosts file again and clear out the added domains
             with open(host_path, 'r+') as hostfile:
                 hosts = hostfile.readlines()
                 hostfile.seek(0)
