@@ -1,11 +1,14 @@
+
 """Pomodoro timer class."""
-import datetime as dt
-
+import datetime
+# from datetime import datetime as dt
 from django.contrib.auth.models import User
-from django.utils import timezone
-
+from django.utils import timezone as dt
+# from pytz import timezone
+# from datetime import datetime
+import datetime
+import pytz
 from . import models as m
-
 
 class Pomodoro:
     """Pomodoro class"""
@@ -14,28 +17,40 @@ class Pomodoro:
         pomodoro_sec = 25 * 60
         delta_sec = 5 * 60
         self.total_pomodoros = 0
-        self.start_time = timezone.now()
+        self.start_time = datetime.datetime.now(tz=pytz.timezone('US/Eastern')) - datetime.timedelta(hours = 5)
+        # timezone = pytz.timezone('US/Eastern')
+        # d_aware = timezone.localize(self.start_time)
         self.pomodoro_length = dt.timedelta(0, pomodoro_sec)
         self.final_productive_time = self.start_time + self.pomodoro_length
-        self.final_break_time = self.start_time + dt.timedelta(0,
-                                                               pomodoro_sec + delta_sec)
+        self.final_break_time = self.start_time + dt.timedelta(0, pomodoro_sec + delta_sec)
 
-    @staticmethod
-    def run_timer(user):
+    def run_timer(self, user):
         """Add to DB start and end time of pomodoro productive session."""
-        pomodoro = Pomodoro()
+        # self.pomodoro = Pomodoro()
         # just for testing purposes
         print('\n\nTimer started!\n\n')
         ####
 
-        entry = m.Session()
-        db_start_time = pomodoro.start_time
-        db_end_time = pomodoro.final_productive_time
+        # entry = m.Session()
+        db_start_time = self.start_time
+        db_end_time = self.final_productive_time
 
         print("db_start_time " + db_start_time.strftime("%H:%M"))
         print("db_end_time " + db_end_time.strftime("%H:%M"))
 
-        entry.start_time = db_start_time
-        entry.end_time = db_end_time
+        # entry.start_time = db_start_time
+        # entry.end_time = db_end_time
+        # entry.user_id = user
+        # entry.save()
+ 
+    def store(self, user):
+        print('\n\nTimer ended!\n\n')
+        end_time = datetime.datetime.now(tz=pytz.timezone('US/Eastern')) - datetime.timedelta(hours = 5)
+        entry = m.Session()
+        entry.start_time = self.start_time
+        entry.end_time = end_time
         entry.user_id = user
         entry.save()
+
+
+

@@ -97,7 +97,7 @@ def detail(request, pk):
 			"activity_data": None, 
 			"blockedsites_data": None})
 		start, end = (sessionData[0].start_time, sessionData[0].end_time)
-		activityData = TimerSessionactivity.objects.filter(user_id=request.user.id, visit_timestamp__range= (start-datetime.timedelta(hours = 5), end-datetime.timedelta(hours = 5)))
+		activityData = TimerSessionactivity.objects.filter(user_id=request.user.id, visit_timestamp__range= (start, end))
 		blockedsitesData = TimerBlockedsite.objects.filter(user_id=request.user.id)
 
 		return render(request, "detail.html", {"session_data" : sessionData,
